@@ -7,7 +7,7 @@ published_date: 11 Novembre 2012
 La problématique en question est d'avoir un `<select>` aux couleurs de la charte graphique du site, 
 __tout en gardant l'élément accessible__ (touch events, navigation par clavier, souris, ...).
 
-On ne modifiera pas la manière dont un élément `<select>`  se comporte. Il y a beaucoup trop d'appareils maintenant à prendre en compte, donc ne réinventons pas la roue et __laissons le navigateur et l'OS faire leur travail__. Par exemple, les smartphones ont une façon différentes d'afficher les options, d'un PC ou d'une tablette.
+On ne modifiera pas la manière dont un élément `<select>`  se comporte. Il y a beaucoup trop d'appareils de nos jours à prendre en compte, laptops, tablettes, smartphones, TVs, donc ne réinventons pas la roue et __laissons le navigateur et l'OS faire leur travail__.
 
 Juste quelques lignes de jQuery suffiront, à accomplir tout ça.
 

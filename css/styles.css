@@ -116,7 +116,7 @@
         padding-left: 0;
         list-style: none;
     }
-
+    
     #container .post {
         min-height: 57px;
         list-style-type: none;
@@ -201,4 +201,32 @@
         float: right;
         overflow: hidden;
     } 
-
+/** TO CLEANUP **/
+li.post .date {
+width: 30px;
+font-size: 12px;
+font-weight: bold;
+line-height: 16px;
+text-align: center;
+text-transform: uppercase;
+text-decoration: none;
+position: absolute;
+display: block;
+position: absolute;
+left: -36px;
+display: block;
+color: #fff;
+top: 0;
+height: 60px;
+margin-top: 5px;
+}
+li.post .tags a.tag {
+color: #fff;
+font-size: 12px;
+font-weight: bold;
+text-transform: uppercase;
+background: #979292;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+padding: 1px 5px;
