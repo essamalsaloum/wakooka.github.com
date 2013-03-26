@@ -27,7 +27,7 @@
         <p class="date-post"><em>11 Novembre 2012</em></p>
         <p>La problématique en question est d&#8217;avoir un <code>&lt;select&gt;</code> aux couleurs de la charte graphique du site, <strong>tout en gardant l&#8217;élément accessible</strong> (touch events, navigation par clavier, souris, &#8230;).</p>
 
-<p>On ne modifie pas la manière dont un <code>&lt;select&gt;</code> élément se comporte. Il y a trop d&#8217;appareils maintenant à prendre en compte, donc ne réinventons pas la roue et <strong>laissons le navigateur et l&#8217;OS faire leur travail</strong>. Par exemple, les smartphones ont une façon différentes d&#8217;afficher les options, d&#8217;un PC ou d&#8217;une tablette.</p>
+<p>On ne modifiera pas la manière dont un élément <code>&lt;select&gt;</code> se comporte. Il y a beaucoup trop d&#8217;appareils maintenant à prendre en compte, donc ne réinventons pas la roue et <strong>laissons le navigateur et l&#8217;OS faire leur travail</strong>. Par exemple, les smartphones ont une façon différentes d&#8217;afficher les options, d&#8217;un PC ou d&#8217;une tablette.</p>
 
 <p>Juste quelques lignes de jQuery suffiront, à accomplir tout ça.</p>
 
@@ -79,9 +79,8 @@
    // if the user is using the keyboard to navigate through the options
    selects.on(&#39;keypress&#39;, function() {
        selects.trigger(&#39;change&#39;);
-   });</code></pre>
-
-<p>});</p>
+   });
+});</code></pre>
 
 <h3 id='css'>CSS</h3>
 

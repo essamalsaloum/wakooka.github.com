@@ -60,7 +60,8 @@ Ok, juste quelques lignes de jQuery pour mettre à jour le `<span>`.
        selects.on('keypress', function() {
            selects.trigger('change');
        });
-   });
+    });
+
 
 ### CSS
 
