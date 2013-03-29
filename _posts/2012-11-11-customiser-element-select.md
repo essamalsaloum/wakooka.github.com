@@ -1,7 +1,7 @@
 ---
 layout: blog_entry
 title: Customiser un &eacute;l&eacute;ment &lt;select&gt;
-published_date: 11 Novembre 2012
+published_date: 11 <br> Nov <br> 2012
 ---
 
 La problématique en question est d'avoir un `<select>` aux couleurs de la charte graphique du site, 
