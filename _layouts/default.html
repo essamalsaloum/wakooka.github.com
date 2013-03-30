@@ -3,6 +3,7 @@
 {% for post in site.posts %}
     <li>
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+         <p class="date-post">{{ post.published_date }}</p>
         {{ post.content | truncatewords:50 }}
         <p class="read-more"><a href="{{ post.url }}" class="button">Lire la suite</a></p>
     </li>
