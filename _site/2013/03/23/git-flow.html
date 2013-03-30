@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Am&eacute;liorer votre workflow avec git-flow -   Jérôme Smadja - Développeur web - Blog</title>
+        <meta name="description" content="Blog - Développeur web - Jérôme Smadja ">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/pygments.css">
+    </head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+    <p class="home-link">
+        <a href="/" class="button">&lt; Home</a>
+    </p>
+    <div class="post">
+        <h1>Am&eacute;liorer votre workflow avec git-flow</h1>
+        <p class="date-post">23 <br> Mars <br> 2013</p>
+        <p>Je suis tombé sur cet article l&#8217;année dernière, <a href='http://nvie.com/posts/a-successful-git-branching-model/'>A successful Git branching model</a>. C&#8217;est un article très intéressant, qui est pratiquement devenu un standard. L&#8217;auteur, Vincent Driessen, y explique comment avoir un repository git organisé et propre. Il est à l&#8217;origine du <em>concept</em> git flow mais il ne s&#8217;est pas arrété là, il a aussi a développé une extension pour git qui facilite la mise en place et l&#8217;utilisation de toutes ses recommandations. L&#8217;extension est <a href='https://github.com/nvie/gitflow'>disponible sur Github</a> et l&#8217;installation est assez simple.</p>
+
+<h2 id='prsentation'>Présentation</h2>
+
+<p>Git-flow, repose sur le <a href='http://git-scm.com/book/fr/Les-branches-avec-Git'>système de branches de git</a>. Pour faire simple :</p>
+
+<ul>
+<li><code>master</code> reflète le code en production. Cela signifie donc que personne ne devrait <strong>jamais développer</strong> sur cette branche. Tous les <code>commit</code> sur cette branche sont alors considérés comme une nouvelle <code>release</code>.</li>
+
+<li><code>develop</code> reflète le code qui est prêt pour le <code>merge</code> pour la nouvelle <code>release</code>, on peut également corriger, améliorer de petites fonctionnalités.</li>
+
+<li><code>feature</code> c&#8217;est ici que l&#8217;on développe les nouvelles fonctionnalités, une fois terminé, on <code>merge</code> les changements dans <code>develop</code></li>
+
+<li><code>release</code> c&#8217;est ici que l&#8217;on prépare une nouvelle <code>release</code>, un <code>merge</code> sera alors effectué dans <code>master</code>.</li>
+
+<li><code>hotfix</code> permet de réparer tout de suite un bug critique en production.</li>
+</ul>
+
+<p>Si vous connaissez bien git, les branches <code>master</code> et <code>develop</code> devraient déjà vous dire quelques chose, car elles ont été adoptées par un grand nombre de développeurs. Les 3 dernières branches peuvent être placées dans une catégorie que <a href='http://git-scm.com/book/fr/Les-branches-avec-Git-Travailler-avec-les-branches'>git appelle les branches <code>topic</code></a>, car elles sont spécifiques à un sujet propre.</p>
+
+<p>Ci dessous, un tableau récapitulatif, expliquant les branches <code>topic</code>, à partir d&#8217;où elles sont créées, où le <code>merge</code> s&#8217;effectuera et quelle est la convention de nommage pour chacun des types <code>feature</code>, <code>release</code> et <code>hotfix</code>.</p>
+<table class='table-bordered'>
+    <tr>
+        <th>Branches</th>
+        <th>A partir de</th>
+        <th>Merge dans</th>
+        <th>Convention</th>
+    </tr>
+    <tr>
+        <td>Feature branch</td>
+        <td><code>develop</code></td>
+        <td><code>develop</code></td>
+        <td><code>feature/*</code></td>
+    </tr>
+    <tr>
+        <td>Release branch</td>
+        <td><code>develop</code></td>
+        <td><code>develop</code> &amp; <code>master</code></td>
+        <td><code>release/*</code></td>
+    </tr>
+    <tr>
+        <td>Hotfix</td>
+        <td><code>master</code></td>
+        <td><code>develop</code> &amp; <code>master</code></td>
+        <td><code>hotfix/*</code></td>
+    </tr>
+</table><hr />
+<p>Le concept est assez facile à comprendre, et à utiliser. Personnellement, j&#8217;utilise l&#8217;extension git-flow qui me fait gagner du temps pour passer d&#8217;une branche à l&#8217;autre, pour les <code>merge</code>. Cela dit, je n&#8217;utilise pas les branches <code>release</code>. Scott Chacon explique dans son blog, pourquoi ils n&#8217;utilisent pas git-flow à Github :</p>
+
+<blockquote>
+<p>So, why don&#8217;t we use git-flow at GitHub? Well, the main issue is that we deploy all the time. The git-flow process is designed largely around the “release”. We don’t really have “releases” because we deploy to production every day – often several times a day.</p>
+
+<p>&#8211; <a href='http://scottchacon.com/2011/08/31/github-flow.html'>Scott Chacon - Blog</a></p>
+</blockquote>
+
+<p>Même si on n&#8217;utilise pas toutes les fonctionnalités de git-flow, il nous donne un façon de travailler qui est très robuste. Par exemple, si on n&#8217;a pas besoin des branches <code>hotfix</code>, ou <code>release</code>, on peut juste utiliser l&#8217;extension pour les branches <code>feature</code>, qui facilitera les <code>merge</code>, et la création / suppression de nouvelles branches .</p>
+
+<h2 id='dbuter_avec_gitflow'>Débuter avec git-flow</h2>
+
+<p>Si vous n&#8217;utilisez pas git en ligne de commande, ce qui suit ne va pas beaucoup vous parler. Les commandes git sont répétitives et faciles à retenir. Et pour être encore plus rapide en ligne de commande, vous pouvez même configurer des <code>alias</code>.</p>
+
+<p>Je pars donc du principe que vous avez <a href='https://github.com/nvie/gitflow/wiki/Installation'>installé git-flow</a> sans problème, et que vous êtes à l&#8217;aise en ligne de commande.</p>
+
+<h3 id='initialiser_git_flow'>Initialiser git flow</h3>
+
+<p>Vous devriez obtenir une série de questions vous demandant les noms de branches, vous pouvez garder celles par défaut.</p>
+<div>
+  <pre><code class='bash'>$  git flow init
+Branch name for production releases: [master]
+Branch name for &quot;next release&quot; development: [develop]
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/]
+Release branches? [release/]
+Hotfix branches? [hotfix/]
+Support branches? [support/]
+Version tag prefix? []</code></pre>
+</div>
+<p>La branche par défaut est maintenant <code>develop</code> qu&#8217;on peut utiliser pour développer ou corriger de petites fonctionnalités. Prenons un exemple, on veut intégrer la page d&#8217;accueil, on lancera alors cette commande :</p>
+
+<h3 id='branche_feature'>Branche feature</h3>
+<pre><code class='bash no-style'>$  git flow feature start homepage
+Switched to a new branch 'feature/homepage'
+
+Summary of actions:
+- A new branch 'feature/homepage' was created, based on 'develop'
+- You are now on branch 'feature/homepage'
+
+Now, start committing on your feature. When done, use:
+    git flow feature finish homepage
+</code></pre>
+<p>C&#8217;est tout ! Et en plus git-flow résume ce qu&#8217;il vient de faire dans ce qu&#8217;il appelle &#8220;summary of actions&#8221; :</p>
+
+<ol>
+<li>Une nouvelle branche <code>feature/homepage</code> a été créée à partir de la branche <code>develop</code></li>
+
+<li>On est maintenant sur la branche <code>feature/homepage</code></li>
+</ol>
+
+<p>Pratique ce résumé, non ?</p>
+
+<p>Si on travaille en équipe, on peut aussi <code>git push</code> cette branche, et les autres développeurs pourront donc également accéder à cette branche et y travailler.</p>
+
+<p>Continuons avec notre exemple, on vient juste de finir la page d&#8217;accueil, on a déjà effectué nos <code>git commit</code>, on va donc lancer cette commande :</p>
+<pre><code class='bash no-style'>$  git flow feature finish homepage
+Switched to branch 'develop'
+Updating 4a6753e..76d351e
+Fast-forward
+ index.html      | 112 +++++++++++
+ 1 file changed, 112 insertions(+)
+ create mode 100644 index.html
+Deleted branch feature/homepage (was 76d351e).
+
+Summary of actions:
+- The feature branch 'feature/homepage' was merged into 'develop'
+- Feature branch 'feature/homepage' has been removed
+- You are now on branch 'develop'
+</code></pre>
+<p>Voici ce qu&#8217;a fait git-flow pour nous faciliter la tâche :</p>
+
+<ol>
+<li>Un <code>merge</code> de la branche <code>feature/homepage</code> dans la branche <code>develop</code></li>
+
+<li>Suppression de la branche <code>feature/homepage</code></li>
+
+<li>On est maintenant dans la branche <code>develop</code></li>
+</ol>
+
+<p>Parfait, notre page d&#8217;accueil est dans la branche <code>develop</code> - qui, je rappelle, est censé refléter le code qui est prêt à être mis en production. Si on a des tests à effectuer je recommande donc qu&#8217;on les fassent avant de fermer <code>feature/homepage</code>. Ainsi, <strong>tout code qui n&#8217;a pas été testé ou qui a échoué aux tests, ne vit pas au même endroit que le code à mettre en production</strong>.</p>
+
+<h3 id='branche_release'>Branche release</h3>
+
+<p>Retour à notre exemple, aujourd&#8217;hui c&#8217;est la date à laquelle on doit mettre en ligne la page d&#8217;accueil, on va alors créer une branche <code>release</code>. Rappel : les branches <code>release</code> sont créées à partir de la branche <code>develop</code>. Nous allons utiliser un numéro de version pour nommer votre nouvelle branche <code>release</code> :</p>
+<pre><code class='bash no-style'>$ git flow release start 1.0.0
+Switched to a new branch 'release/1.0.0'
+
+Summary of actions:
+- A new branch 'release/1.0.0' was created, based on 'develop'
+- You are now on branch 'release/1.0.0'
+
+Follow-up actions:
+- Bump the version number now!
+- Start committing last-minute fixes in preparing your release
+- When done, run:
+     git flow release finish '1.0.0'
+</code></pre>
+<p>Résumé :</p>
+
+<ol>
+<li>Une nouvelle branche <code>release/1.0.0</code> a été créée</li>
+
+<li>On est maintenant dans la branche <code>release/1.0.0</code></li>
+</ol>
+
+<p>Actions à effectuer par la suite :</p>
+
+<ul>
+<li>Incrémenter le numéro de version</li>
+
+<li><code>commit</code> les améliorations / réglages de dernières minute</li>
+
+<li>Quand on a fini, on peut lancer la commande <code>git flow release finish &#39;1.0.0&#39;</code></li>
+</ul>
+
+<p>Par exemple, on peut changer le numéro de version dans certain de nos fichiers. Une fois que le <code>commit</code> pour les fichiers modifiés a été effectué, on peut alors la terminer la <code>release</code> :</p>
+<pre><code class='bash no-style'>$ git flow release finish 1.0.0
+Switched to branch 'master'
+Deleted branch release/v1.0.0 (was 76d351e).
+
+Summary of actions:
+- Latest objects have been fetched from 'origin'
+- Release branch has been merged into 'master'
+- The release was tagged '1.0.0'
+- Release branch has been back-merged into 'develop'
+- Release branch 'release/v1.0.0' has been deleted
+</code></pre>
+<p>Résumé :</p>
+
+<ul>
+<li>Les fichiers les plus récents ont été récupérés à partir du serveur</li>
+
+<li>Un <code>merge</code> de la branche <code>release</code> dans la branche <code>master</code> a été effectué</li>
+
+<li>La <code>release</code> a été taggé &#8216;1.0.0&#8217;, pour accéder facilement à l&#8217;historique des versions</li>
+
+<li>Un <code>merge</code> de la branche <code>release</code> dans la branche <code>develop</code> a été effectué, de cette manière la branche <code>develop</code> contiendra mainteant les corrections de bugs qui ont été effectués dans des branches <code>hotfix</code> ( voir plus bas )</li>
+
+<li>La branche <code>release</code> a été supprimée</li>
+</ul>
+
+<p>Chose importante à noter, après avoir lancer cette commande, git-flow nous demandera alors d&#8217;éditer un fichier où l&#8217;on peut ajouter <a href='http://git-scm.com/book/fr/Les-bases-de-Git-%C3%89tiquetage'>un message d&#8217;annotation au <code>tag</code></a> de cette <code>release</code>.</p>
+
+<p>On peut ensuite accéder à l&#8217;historique des versions en utilisant les <code>tags</code> : <pre><code class='bash no-style'>$ git show 1.0.0
+tag 1.0.0
+Tagger: Jerome &lt;email@example.com&gt;
+Date:   Fri Mar 29 18:05:54 2013 +1100
+- Homepage done
+</code></pre></p>
+
+<h3 id='branche_hotfix'>Branche hotfix</h3>
+
+<p>Les branches <code>hotfix</code> sont ce que je dirai <em>hors</em> flow, elles ne sont pas planifiées et n&#8217;existent pour une seule chose : <strong>corriger un bug en production</strong> et rien d&#8217;autre. Par conséquent, elles sont créées à partir de <code>master</code>. Rappel : <code>master</code> est une copie exacte du code en production.</p>
+<pre><code class='bash no-style'>$ git flow hotfix start 1.0.1
+Switched to a new branch 'hotfix/1.0.1'
+
+Summary of actions:
+- A new branch 'hotfix/1.0.1' was created, based on 'master'
+- You are now on branch 'hotfix/1.0.1'
+
+Follow-up actions:
+- Bump the version number now!
+- Start committing your hot fixes
+- When done, run:
+     git flow hotfix finish '1.0.1'
+</code></pre>
+<p>Résumé :</p>
+
+<ol>
+<li>Une nouvelle branche <code>hotfix/1.0.1</code> a été créée à partir de <code>master</code></li>
+
+<li>On est dans la branche <code>hotfix/1.0.1</code></li>
+</ol>
+
+<p>Actions à effectuer par la suite :</p>
+
+<ul>
+<li>Incrémenter le numéro de version</li>
+
+<li><code>commit</code> les corrections</li>
+</ul>
+
+<p>Quand on a fini les corrections :</p>
+<pre><code class='bash no-style'>$ git flow hotfix finish '1.0.1'
+Switched to branch 'develop'
+Already up-to-date!
+Merge made by the 'recursive' strategy.
+Deleted branch hotfix/1.0.1 (was dd77b58).
+
+Summary of actions:
+- Latest objects have been fetched from 'origin'
+- Hotfix branch has been merged into 'master'
+- The hotfix was tagged '1.0.1'
+- Hotfix branch has been back-merged into 'develop'
+- Hotfix branch 'hotfix/1.0.1' has been deleted
+</code></pre>
+<p>Résumé :</p>
+
+<ul>
+<li>Les fichiers les plus récents ont été récupérés à partir du serveur</li>
+
+<li>Un <code>merge</code> de la branche <code>hotfix</code> dans la branche <code>master</code> a été effectué</li>
+
+<li>Le <code>tag</code> &#8216;1.0.1&#8217; a été ajouté au <code>commit</code></li>
+
+<li>Un <code>merge</code> de la branche <code>hotfix</code> dans la branche <code>develop</code> a été effectué</li>
+
+<li>La branche <code>release</code> a été supprimée</li>
+</ul>
+
+<h2 id='alors_convaincu_'>Alors, convaincu ?</h2>
+
+<p>Cet exemple nous montre comment avoir un repo bien organisé avec des branches sémantiques. Sans l&#8217;extension git-flow on passerait beaucoup plus de temps dans le terminal pour effectué toutes ces actions. Créer une branche, <code>merge</code> une branche dans une autre, supprimer une branche, deviennent alors des actions faciles et automatisées.</p>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeromesmadja-blog'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        </div>  
+        <div class="footer">
+            <div class="container footer-content">
+                 <div class="footer-twitter">
+                    <a href="https://twitter.com/jeromesmadja" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @jeromesmadja</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                <h6>Jérôme Smadja</h6>
+                <p>
+                    Développeur Front End / PHP. Melbourne, Australie. <br>
+                    J'utilise <a href="https://github.com/mojombo/jekyll">Jekyll</a> et <a href="http://pages.github.com/">Github pages</a> pour ce blog.
+                </p>
+            </div>
+        </div>
+    
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36225677-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        </script>
+    </body>
+</html> 
