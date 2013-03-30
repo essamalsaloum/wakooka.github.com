@@ -18,7 +18,7 @@ Juste quelques lignes de jQuery suffiront, à accomplir tout ça.
 ### HTML
 
 On ajoute juste container et un `<span>` qui servira de placeholder pour le texte.
-
+{% highlight %}
     <div class="select-wrapper">
         <span class="select-text"></span><!-- Placeholder that will update on the select change event -->
         <select>
@@ -28,11 +28,11 @@ On ajoute juste container et un `<span>` qui servira de placeholder pour le text
                 <option>USA</option>
         </select>
     </div>
-
+{% endhighlight %}
 ### jQuery
 
 Ok, juste quelques lignes de jQuery pour mettre à jour le `<span>`.
-
+{% highlight %}
     $(function() {
 
        // Get select elements
@@ -61,12 +61,12 @@ Ok, juste quelques lignes de jQuery pour mettre à jour le `<span>`.
            selects.trigger('change');
        });
     });
-
+{% endhighlight %}
 
 ### CSS
 
 La principale ligne à regarder ici est l'opacité. En gros, l'opacité du `<select>` est 0 ce qui le rend invisible pour l'utilisateur, mais restant au-dessus du `<span>`, le navigateur va alors déclencher le click event sur le `<select>`.
-
+{% highlight %}
     .select-wrapper {   
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
@@ -116,5 +116,5 @@ La principale ligne à regarder ici est l'opacité. En gros, l'opacité du `<sel
         -webkit-opacity: 0;
         opacity: 0;
     }
-
+{% endhighlight %}
 Testé sous Windows 7 sur Chrome, Firefox, Safari, Interner Explorer 8+ (désolé pas de support pour IE7), et Safari pour iPad sous iOS 6.
