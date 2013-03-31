@@ -6,7 +6,6 @@
         <meta name="description" content="Blog - Développeur web - Jérôme Smadja ">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/pygments.css">
     </head>
 <body>
     <div id="wrapper">
@@ -83,18 +82,17 @@
 <h3 id='initialiser_git_flow'>Initialiser git flow</h3>
 
 <p>Vous devriez obtenir une série de questions vous demandant les noms de branches, vous pouvez garder celles par défaut.</p>
-<div>
-  <pre><code class='bash'>$  git flow init
+<pre><code class='bash no-style'>$  git flow init
 Branch name for production releases: [master]
-Branch name for &quot;next release&quot; development: [develop]
+Branch name for "next release" development: [develop]
 
 How to name your supporting branch prefixes?
 Feature branches? [feature/]
 Release branches? [release/]
 Hotfix branches? [hotfix/]
 Support branches? [support/]
-Version tag prefix? []</code></pre>
-</div>
+Version tag prefix? []
+</code></pre>
 <p>La branche par défaut est maintenant <code>develop</code> qu&#8217;on peut utiliser pour développer ou corriger de petites fonctionnalités. Prenons un exemple, on veut intégrer la page d&#8217;accueil, on lancera alors cette commande :</p>
 
 <h3 id='branche_feature'>Branche feature</h3>
