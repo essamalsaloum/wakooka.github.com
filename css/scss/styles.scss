@@ -19,7 +19,6 @@ a {
 
     &:hover { 
         @include transition ( all 0.5s ease-in );
-        // color: #60187A;
         text-decoration: underline;
     }
 }
@@ -44,11 +43,10 @@ blockquote {
     padding: 5px; 
     text-align: left;
 }
-#wrapper { position: relative; }
 .container {
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     max-width: 930px;
-    padding: 0 30px 150px 30px;
+    padding: 0 30px 0 30px;
     position: relative;
 }
 code {
@@ -58,12 +56,11 @@ code {
 }
 .no-style {  
     color: #fff; 
-    .keyword, .no-style .keyword { color: #fff; }
+    .keyword { color: #fff; }
 }
 
 .separate, hr {
     display: block;
-    /*width: 930px;*/
     border: 1px dotted #60187a;
     height: 2px;
     background: #60187a;
@@ -170,9 +167,7 @@ code {
 }
 .other-posts { 
     overflow: hidden;
-    .next-post, .prev-post {
-        width: 400px;
-    }
+    .next-post, .prev-post { width: 400px; }
     .next-post { float: right; text-align: right; }
     .prev-post { float: left; }
 }
@@ -205,7 +200,6 @@ code {
     bottom: 0;
     height: 150px;
     overflow: hidden;
-    position: absolute;
     width: 100%;
 
     .footer-content {
@@ -227,3 +221,5 @@ code {
         .footer-twitter { float: right; }
     }
 }
+
+@import 'small-device'
