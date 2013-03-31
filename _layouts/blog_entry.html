@@ -7,6 +7,19 @@
         <p class="date-post">{{ page.published_date }}</p>
         {{content}}
     </div>
+    <div class="other-posts">
+        <h5>Autres articles</h5>
+        {% if page.next %}
+            <div class="next-post">
+                <a href="{{ page.next.url }}" class="button">{{ page.next.title }} &gt;</a>
+            </div>
+        {% endif %}
+        {% if page.previous %}
+            <div class="prev-post">
+                <a href="{{ page.previous.url }}" class="button">&lt; {{ page.previous.title }}</a>
+            </div>
+        {% endif %}
+    </div>
     <hr>
     <div id="disqus_thread"></div>
         <script type="text/javascript">

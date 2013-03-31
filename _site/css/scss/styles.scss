@@ -132,9 +132,10 @@ code {
 
 .container .button {
     background: #979292;
-    color: white;
+    color: #fff;
+    display: inline-block;
     font-weight: bold;
-    padding: 10px;
+    padding: 8px 10px;
     border-radius: 5px;
 }
 
@@ -167,6 +168,15 @@ code {
 .container .post h1 { 
     margin: 20px 0 30px 70px;
 }
+.other-posts { 
+    overflow: hidden;
+    .next-post, .prev-post {
+        width: 400px;
+    }
+    .next-post { float: right; text-align: right; }
+    .prev-post { float: left; }
+}
+
 .container .social { 
     position: relative;
     margin-top: 20px;
