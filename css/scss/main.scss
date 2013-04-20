@@ -128,7 +128,7 @@ code {
 .container .read-more { text-align: right; }
 
 .container .button {
-    background: #979292;
+    background-color: #979292;
     color: #fff;
     display: inline-block;
     font-weight: bold;
@@ -137,7 +137,7 @@ code {
 }
 
 .container .button:hover { 
-    background: #60187A;
+    background-color: #60187A;
     text-decoration: none;
 }
 
@@ -198,8 +198,6 @@ code {
 }
 .footer {
     background: #3F3F3F;
-    bottom: 0;
-    height: 150px;
     overflow: hidden;
     width: 100%;
 
@@ -207,6 +205,8 @@ code {
         color: #fff;
         margin: 0 auto;
         position: relative;
+        padding-top: 15px;
+        padding-bottom: 15px;
         
         a { 
             color: #01B7EE;
@@ -217,7 +217,40 @@ code {
             border: none;
             font-weight: normal;
             font-size: 18px;
-            margin: 15px 0 10px 0;
+            margin: 0 0 10px 0;
+        }
+    }
+    .about-me {
+        float: left;
+        min-width: 300px;
+    }
+    .additional-info {
+        float: left;
+
+        ul { 
+            list-style: none;
+            margin: 0; 
+            padding: 0;
+            li { 
+                float: left;
+                margin: 0 5px 5px 5px;
+            }
+        }
+        .button {
+            background-repeat:  no-repeat ;
+            background-position : left center; 
+            padding: 12px 10px 12px 40px; 
+            color: #fff; 
+        }
+        #twitter-account { background-image: url(/img/twitter-icon.png); }
+        #github-account { background-image: url(/img/github-icon.png); }
+        #coderbits-account { 
+            background-image: url(/img/coderbits-icon.png); 
+            background-position : 5px center; 
+        }
+        #linkedin-account { 
+            background-image: url(/img/linkedin-icon.png); 
+             background-position : 5px center; 
         }
     }
 }
