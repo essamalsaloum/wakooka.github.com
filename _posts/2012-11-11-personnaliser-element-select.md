@@ -3,7 +3,7 @@ layout: blog_entry
 title: Personnaliser un &eacute;l&eacute;ment &lt;select&gt;
 published_date: 11 <br> Nov <br> 2012
 ---
-EDIT 25/04:/2013: J'ai créé un tout petit javascript plugin pour metter en place cette technique plus facilement : [Selectyle sur Github](https://github.com/jeromesmadja/selectyle)
+__EDIT 25/04/2013__: J'ai créé un tout petit javascript plugin pour metter en place cette technique plus facilement : [Selectyle sur Github](https://github.com/jeromesmadja/selectyle)
 
 La problématique en question est d'avoir un `<select>` aux couleurs de la charte graphique du site,
 __tout en gardant l'élément accessible__ (touch events, navigation par clavier, souris, ...).
