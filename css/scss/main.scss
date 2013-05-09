@@ -22,10 +22,11 @@ a {
     }
 }
 
+/** Sticky footer **/
 html, body, #wrapper { height: 100%; }
 #wrapper { height: auto; min-height: 100%;}
-#container {  border-top: 3px solid #238db1; }
-#container > .container { padding-bottom: 150px; }
+#container { border-top: 3px solid #238db1; }
+#container > .container { padding-bottom: 120px; }
 
 p { margin: 0 0 14px 0; }
 
@@ -202,8 +203,8 @@ code {
 }
 .footer {
     background: #3F3F3F;
-    height: 150px;
-    margin-top: -150px;
+    height: 120px;
+    margin-top: -120px;
     overflow: hidden;
     position: relative;
     width: 100%;
