@@ -1,11 +1,10 @@
-@import 'normalize';     
+@import 'normalize';
 @import 'bourbon/bourbon';
 @import 'zenburn';
 body {
     margin:0;
     height: 100%;
     color: #454545;
-    border-top: 3px solid #238db1;
     font-size: 14px;
     line-height: 22px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -17,11 +16,16 @@ a {
     text-decoration: none;
     @include transition ( all 0.5s ease-in );
 
-    &:hover { 
+    &:hover {
         @include transition ( all 0.5s ease-in );
         text-decoration: underline;
     }
 }
+
+html, body, #wrapper { height: 100%; }
+#wrapper { height: auto; min-height: 100%;}
+#container {  border-top: 3px solid #238db1; }
+#container > .container { padding-bottom: 150px; }
 
 p { margin: 0 0 14px 0; }
 
@@ -33,14 +37,14 @@ blockquote {
 }
 .container table { margin: 0 0 20px 0; }
 .table-bordered {
-    border-collapse: collapse; 
-    border: 1px solid #ccc; 
-    width: 100%; 
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    width: 100%;
 }
 .table-bordered th,
-.table-bordered td {  
+.table-bordered td {
     border: 1px solid #ccc;
-    padding: 5px; 
+    padding: 5px;
     text-align: left;
 }
 .container {
@@ -54,8 +58,8 @@ code {
     border-radius: 5px;
     padding: 1px 6px;
 }
-.no-style {  
-    color: #fff; 
+.no-style {
+    color: #fff;
     .keyword { color: #fff; }
 }
 
@@ -101,7 +105,7 @@ code {
 
 .container h5 { font-size: 16px; }
 .container h6 { font-size: 14px; }
-.container .date-post { 
+.container .date-post {
     background: #238db1;
     border-radius: 60px;
     color: #fff;
@@ -124,7 +128,7 @@ code {
     opacity: 0.7;
 }
 
-.container .home-link  { margin: 20px 0 0 0;}
+.container .home-link  { padding: 20px 0 0 0;}
 .container .read-more { text-align: right; }
 
 .container .button {
@@ -136,7 +140,7 @@ code {
     border-radius: 5px;
 }
 
-.container .button:hover { 
+.container .button:hover {
     background-color: #60187A;
     text-decoration: none;
 }
@@ -149,7 +153,7 @@ code {
     margin: 10px 0 30px 70px;
     padding-top: 10px;
 }
-.container ul.post-list h3 a:hover { 
+.container ul.post-list h3 a:hover {
     color: #000;
     text-decoration: none;
 }
@@ -163,17 +167,17 @@ code {
     padding-bottom: 15px;
     position: relative;
 }
-.container .post h1 { 
+.container .post h1 {
     margin: 20px 0 30px 70px;
 }
-.other-posts { 
+.other-posts {
     overflow: hidden;
     .next-post, .prev-post { width: 400px; }
     .next-post { float: right; text-align: right; }
     .prev-post { float: left; }
 }
 
-.container .social { 
+.container .social {
     position: relative;
     margin-top: 20px;
 }
@@ -198,7 +202,10 @@ code {
 }
 .footer {
     background: #3F3F3F;
+    height: 150px;
+    margin-top: -150px;
     overflow: hidden;
+    position: relative;
     width: 100%;
 
     .footer-content {
@@ -207,8 +214,8 @@ code {
         position: relative;
         padding-top: 15px;
         padding-bottom: 15px;
-        
-        a { 
+
+        a {
             color: #01B7EE;
             &:hover { color: #01B7EE; }
         }
@@ -227,30 +234,30 @@ code {
     .additional-info {
         float: left;
         margin-top: 27px;
-        ul { 
+        ul {
             list-style: none;
-            margin: 0; 
+            margin: 0;
             padding: 0;
-            li { 
+            li {
                 float: left;
                 margin: 0 5px 5px 5px;
             }
         }
         .button {
             background-repeat:  no-repeat ;
-            background-position : left center; 
-            padding: 12px 10px 12px 40px; 
-            color: #fff; 
+            background-position : left center;
+            padding: 12px 10px 12px 40px;
+            color: #fff;
         }
         #twitter-account { background-image: url(/img/twitter-icon.png); }
         #github-account { background-image: url(/img/github-icon.png); }
-        #coderbits-account { 
-            background-image: url(/img/coderbits-icon.png); 
-            background-position : 5px center; 
+        #coderbits-account {
+            background-image: url(/img/coderbits-icon.png);
+            background-position : 5px center;
         }
-        #linkedin-account { 
-            background-image: url(/img/linkedin-icon.png); 
-             background-position : 5px center; 
+        #linkedin-account {
+            background-image: url(/img/linkedin-icon.png);
+             background-position : 5px center;
         }
     }
 }
