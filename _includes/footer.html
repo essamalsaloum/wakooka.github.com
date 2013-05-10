@@ -22,10 +22,9 @@
     </footer>
     <script>
         // For syntax highlighting
-        var code_elements = document.querySelectorAll('pre code');
-        for (var i = 0; i <= code_elements.length; i++) {
-            hljs.highlightBlock( code_elements[i] )
-        };
+        [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
+            hljs.highlightBlock( element );
+        });
     </script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
