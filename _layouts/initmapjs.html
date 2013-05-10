@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+        <title>jQuery plugin for Google Maps - initmap.js</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/initmap.css">
+        <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/zenburn.min.css">
+        <script src="http://yandex.st/highlightjs/7.3/highlight.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <script src="/js/initmap.min.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="header-wrapper">
+                <header>
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <h1>initmap.js <br><span>a tiny jQuery plugin for embedding Google Maps</span></h1>
+                        </div>
+                        <div class="span4 download">
+                            <p>
+                                <a href="#" class="btn btn-large btn-info">
+                                    Download initmap.min.js<br>
+                                    <span><em>current version : 0.1 (6KB)</em></span>
+                                </a>
+                            </p>
+                         </div>
+                    </div>
+                </header>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="navbar">
+                       <div class="navbar-inner">
+                            <ul class="nav">
+                                <li class="active"><a href="./index.html">About</a></li>
+                                <li><a href="#getting_started">Getting Started</a></li>
+                                <li><a href="#documentation">Documentation</a></li>
+                                <li><a href="#examples">Examples</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <section>
+                            {{ content }}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script>
+            // For syntax highlighting
+            [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
+                hljs.highlightBlock( element );
+            });
+        </script>
+    </body>
+</html>

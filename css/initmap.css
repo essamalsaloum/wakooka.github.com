@@ -1,0 +1,62 @@
+/* Base text styles */
+
+body {
+    background-color: #FBFAF7;
+    color: #232323;
+    margin: 0;
+    padding: 0;
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+    position: relative;
+}
+.header-wrapper {
+    background: #EBE9E6;
+    border-bottom: 6px solid #f95d5d;
+    padding-top: 10px;
+}
+
+header h1 {
+    background: url(../img/map-marker.png) no-repeat 18px 0;
+    color: #f95d5d;
+    font-family: 'Bree Seri', sans-serif;
+    line-height: 25px;
+    padding-left: 75px;
+}
+header h1 span {
+    color: #232323;
+    font-size: 14px;
+}
+/*header .download { margin-top: 10px; }*/
+
+header .btn { text-align: left;}
+header .btn span {
+    font-size: 11px;
+    text-align: left;
+}
+.navbar-inner {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background: #636363;
+}
+.navbar .nav > li > a {
+    color: #fff;
+    text-shadow: none;
+}
+.navbar .nav > li > a:hover {  color: #f95d5d;}
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus { background: #f95d5d; color: #fff;}
+
+.content h1 { border-bottom: 1px solid #454545; }
+
+.content h2 {
+    color: #0B3166;
+    margin: 15px 0 10px 0;
+    font-size: 20px;
+}
+/** Fixes conflict between bootstrap/google maps **/
+div[id$=map] label { width: auto; display:inline; }
+div[id$=map] img { max-width: none; }
+/* Footer */
+
+footer {}
