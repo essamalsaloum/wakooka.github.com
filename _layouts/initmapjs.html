@@ -22,14 +22,16 @@
             <div class="header-wrapper">
                 <header>
                     <div class="row-fluid">
-                        <div class="span8">
+                        <div class="span6">
                             <h1>initmap.js <br><span>a tiny jQuery plugin for embedding Google Maps</span></h1>
                         </div>
-                        <div class="span4 download">
+                        <div class="span6 buttons">
                             <p>
                                 <a href="#" class="btn btn-large btn-info">
-                                    Download initmap.min.js<br>
-                                    <span><em>current version : 0.1 (6KB)</em></span>
+                                    Download initmap.min.js
+                                </a> 
+                                <a href="#" class="btn btn-large">
+                                    View on Github
                                 </a>
                             </p>
                          </div>
@@ -56,16 +58,22 @@
                         <section>
                             {{ content }}
                         </section>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div> <!-- .span12 -->
+                </div> <!-- .row-fluid -->
+            </div> <!-- .content -->
+        </div> <!-- .container -->
         <footer></footer>
         <script>
             // For syntax highlighting
             [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
                 hljs.highlightBlock( element );
             });
+            // Init the maps
+            $('#basic-map').initMap();
+            $('#center-map').initMap({ center: [ 48.861553 , 2.351074 ] });
+            $('#type-map').initMap({ type: 'roadmap' });
+            $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
+            $('#geolocation-map').initMap({ geolocation: { center: true }});
         </script>
     </body>
 </html>
