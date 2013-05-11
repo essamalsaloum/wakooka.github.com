@@ -135,9 +135,6 @@ They both need to be loaded before __initmap.js__ like this:
 ------------------------------------------------------------
 
 ## Geolocation
-
-	$('#map').initMap({ geolocation: { options } });
-
 ### Geolocation options
 <table class="table table-bordered">
 	<tr>
