@@ -61,13 +61,13 @@ They both need to be loaded before __initmap.js__ like this:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>center</td>
+		<td><a href="#center">center</a></td>
 		<td>string or aray</td>
 		<td>[ 0 , 0 ]</td>
 		<td>Plain text address, or array of latitude / longitude: [ lat , lng ]</td>
 	</tr>
 	<tr>
-		<td>type</td>
+		<td><a href="#type">type</a></td>
 		<td>string</td>
 		<td>hybrid</td>
 		<td>4 options available:
@@ -78,7 +78,7 @@ They both need to be loaded before __initmap.js__ like this:
 		</td>
 	</tr>
 	<tr>
-		<td>options</td>
+		<td><a href="#options">options</a></td>
 		<td>objects</td>
 		<td>{ zoom: 2 }</td>
 		<td>
