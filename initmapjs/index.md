@@ -2,7 +2,7 @@
 layout: initmapjs
 ---
 
-# About
+## About
 
 __initmap.js__ allows you to embed Google Maps in a __nice, quick, and easy way__. The main goal of the plugin is to get rid of the boilerplate code to embed a Google Map. It gives you __flexibility__ if you need to do more complex things.
 
@@ -11,7 +11,7 @@ __initmap.js__ allows you to embed Google Maps in a __nice, quick, and easy way_
 - Info Windows
 - Controls
 
-# Getting Started
+## Getting Started
 
 __initmap.js__ has two dependencies:
 
@@ -28,7 +28,7 @@ They both need to be loaded before __initmap.js__ like this:
 
 -----------------------------------------------------------
 
-## Basic example
+### Basic example
 
 <div class="row-fluid">
 	<div class="span6">
@@ -51,8 +51,8 @@ They both need to be loaded before __initmap.js__ like this:
 
 ---------------------------------------------------------------------------
 
-# Documentation
-## Basic options
+## Documentation
+### Basic options
 <table class="table table-bordered">
 	<tr>
 		<th>Property</th>
@@ -88,7 +88,7 @@ They both need to be loaded before __initmap.js__ like this:
 	</tr>
 </table>
 
-### Center
+#### Center
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -106,7 +106,7 @@ They both need to be loaded before __initmap.js__ like this:
 	</div>
 </div>
 
-### Type
+#### Type
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -119,7 +119,7 @@ They both need to be loaded before __initmap.js__ like this:
 	</div>
 </div>
 
-### Options
+#### Options
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -134,8 +134,8 @@ They both need to be loaded before __initmap.js__ like this:
 
 ------------------------------------------------------------
 
-## Geolocation
-### Geolocation options
+### Geolocation
+#### Geolocation options
 <table class="table table-bordered">
 	<tr>
 		<th>Property</th>
