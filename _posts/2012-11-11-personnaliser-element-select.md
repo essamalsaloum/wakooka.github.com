@@ -2,7 +2,6 @@
 layout: blog_entry
 title: Personnaliser un &eacute;l&eacute;ment &lt;select&gt;
 published_date: 11 <br> Nov <br> 2012
-published: false
 ---
 __EDIT 25/04/2013__: J'ai créé un tout petit javascript plugin pour mettre en place cette technique plus facilement : [Selectyle sur Github](https://github.com/jeromesmadja/selectyle)
 
