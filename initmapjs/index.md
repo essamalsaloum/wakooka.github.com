@@ -151,7 +151,7 @@ They both need to be loaded before __initmap.js__ like this:
 	</tr>
 	<tr>
 		<td>marker</td>
-		<td>boolean / object</td>
+		<td>boolean or object</td>
 		<td>false</td>
 		<td>true to add a dafault marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
 	</tr>
@@ -168,13 +168,27 @@ They both need to be loaded before __initmap.js__ like this:
 		<td>Returns HTML5 Geoposition object</td>
 	</tr>
 </table>
+
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
+			Center the map where the user is located
 			<pre><code>$('#map').initMap({ geolocation: { center: true } });</code></pre>
 		</div>
 	</div>
 	<div class="span6">
-		<div id="geolocation-map" style="width: 100%; height: 300px;"> </div>
+		<div id="geolocation-center-map" style="width: 100%; height: 300px;"> </div>
+	</div>
+</div>
+<hr>
+<div class="row-fluid">
+	<div class="span6">
+		<div class="well">
+			Add a marker to the map where the user is located
+			<pre><code>$('#map').initMap({ geolocation: { marker: true } });</code></pre>
+		</div>
+	</div>
+	<div class="span6">
+		<div id="geolocation-marker-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
