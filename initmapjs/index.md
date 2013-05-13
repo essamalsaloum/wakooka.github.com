@@ -88,7 +88,10 @@ They both need to be loaded before __initmap.js__ like this:
 	</tr>
 </table>
 
+---------------------------------------------------
+
 #### Center
+
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -106,7 +109,10 @@ They both need to be loaded before __initmap.js__ like this:
 	</div>
 </div>
 
+---------------------------------------------------
+
 #### Type
+
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -118,6 +124,8 @@ They both need to be loaded before __initmap.js__ like this:
 		<div id="type-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
+
+---------------------------------------------------
 
 #### Options
 <div class="row-fluid">
@@ -144,30 +152,42 @@ They both need to be loaded before __initmap.js__ like this:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>center</td>
+		<td><a href="#geolocation_center">center</a></td>
 		<td>boolean</td>
 		<td>false</td>
 		<td>true to center the map where the user is located</td>
 	</tr>
 	<tr>
-		<td>marker</td>
+		<td><a href="#geolocation_center">marker</a></td>
 		<td>boolean or object</td>
 		<td>false</td>
 		<td>true to add a dafault marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
 	</tr>
+</table>
+
+#### Geolocation callbacks
+
+<table class="table table-bordered">
+	<tr>
+		<th>Name</th>
+		<th>Return value</th>
+		<th>Description</th>
+	</tr>
 	<tr>
 		<td>success</td>
-		<td>function</td>
-		<td>-</td>
 		<td>Returns HTML5 Geoposition object</td>
+		<td> </td>
 	</tr>
 	<tr>
 		<td>error</td>
-		<td>function</td>
-		<td>-</td>
-		<td>Returns HTML5 Geoposition object</td>
+		<td>Returns PositionError object</td>
+		<td> If the Geolocation fails, error() is invoked</td>
 	</tr>
 </table>
+
+---------------------------------------------------------
+
+#### Geolocation center
 
 <div class="row-fluid">
 	<div class="span6">
@@ -180,7 +200,9 @@ They both need to be loaded before __initmap.js__ like this:
 		<div id="geolocation-center-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
-<hr>
+
+---------------------------------------------------
+#### Geolocation marker
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -192,3 +214,38 @@ They both need to be loaded before __initmap.js__ like this:
 		<div id="geolocation-marker-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
+
+---------------------------------------------------------------------
+
+### Markers
+To add markers to the map:
+
+	$('#map').({
+		markers : {
+			marker1 : { position: [ 0 , 0 ] } 
+		}
+	});
+<div class="alert alert-info">In the example above, note that <strong>'marker1'</strong> can be anything, it's a marker id so that we can retrieve the id using marker.get('marker_id')</div>
+
+#### Markers options
+
+<table class="table table-bordered">
+	<tr>
+		<th>Property</th>
+		<th>Type</th>
+		<th>Default</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>position</td>
+		<td>array or string</td>
+		<td></td>
+		<td>Plain text address, or array of latitude / longitude: [ lat , lng ]</td>
+	</tr>
+	<tr>
+		<td>infowindow</td>
+		<td>object</td>
+		<td>{}</td>
+		<td>true to add a dafault marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
+	</tr>
+</table>
