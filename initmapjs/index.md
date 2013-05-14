@@ -34,7 +34,7 @@ They both need to be loaded before __initmap.js__ like this:
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
-			<pre><code>$('#map').initMap();</code></pre>
+			<pre><code class="javascript">$('#map').initMap();</code></pre>
 
 			<p>Default parameters (required by Google Maps to initialize the map): <br>
 			<code>center</code>: lat: 0 / lng: 0 <br>
@@ -97,9 +97,9 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			<p>You can either pass a plain text address, or an array of latitude and longitude:</p>
-			<pre><code>$('#map').initMap({ center : 'Paris, France' });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ center : 'Paris, France' });</code></pre>
 			<p>or</p>
-			<pre><code>$('#map').initMap({ center : [ 48.861553 , 2.351074 ] });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ center : [ 48.861553 , 2.351074 ] });</code></pre>
 			<p>Those two examples will give the exact same result.</p>
 			<div class="alert alert-info">When passing the address, we convert it into latitude and longitude internally using Google Maps Geocoder, it's important to watch the <a href="https://developers.google.com/maps/documentation/geocoding/index#Limits"><strong>usage limit</strong></a>. I would recommend, if you can, to get the latitude and longitude manually and pass them as an array.
 			</div>
@@ -118,7 +118,7 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			<p>Set the map type to roadmap:</p>
-			<pre><code>$('#map').initMap({ type : 'roadmap' });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ type : 'roadmap' });</code></pre>
 		</div>
 	</div>
 	<div class="span6">
@@ -133,7 +133,7 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			Set the zoom to 6:
-			<pre><code>$('#map').initMap({ options : { zoom: 4, scrollwheel: false } });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ options : { zoom: 4, scrollwheel: false } });</code></pre>
 		</div>
 	</div>
 	<div class="span6">
@@ -194,7 +194,7 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			Center the map where the user is located
-			<pre><code>$('#map').initMap({ geolocation: { center: true } });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ geolocation: { center: true } });</code></pre>
 		</div>
 	</div>
 	<div class="span6">
@@ -208,7 +208,7 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			Add a marker to the map where the user is located
-			<pre><code>$('#map').initMap({ geolocation: { marker: true } });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({ geolocation: { marker: true } });</code></pre>
 		</div>
 	</div>
 	<div class="span6">
