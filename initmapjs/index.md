@@ -96,7 +96,7 @@ They both need to be loaded before __initmap.js__ like this:
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
-			<p>You can either pass an address, or an array of latitude and longitude:</p>
+			<p>You can either pass a plain text address, or an array of latitude and longitude:</p>
 			<pre><code>$('#map').initMap({ center : 'Paris, France' });</code></pre>
 			<p>or</p>
 			<pre><code>$('#map').initMap({ center : [ 48.861553 , 2.351074 ] });</code></pre>
@@ -202,7 +202,7 @@ They both need to be loaded before __initmap.js__ like this:
 	</div>
 </div>
 
----------------------------------------------------
+--------------------------------------------------------------------
 #### Geolocation marker
 <div class="row-fluid">
 	<div class="span6">
@@ -260,3 +260,32 @@ They both need to be loaded before __initmap.js__ like this:
 		</td>
 	</tr>
 </table>
+
+--------------------------------------------------------------------
+#### Marker position
+
+<div class="row-fluid">
+	<div class="span6">
+		<div class="well">
+			<p>You can either pass a plain text address, or an array of latitude and longitude:</p>
+			<pre><code>$('#map').initMap({ 
+	markers : {
+		paris_marker: { position: 'Paris, France' }
+	}
+});
+			</code></pre>
+			<p>or</p>
+			<pre><code>$('#map').initMap({ 
+	markers : {
+		paris_marker: { position: [ 48.861553 , 2.351074 ] }
+	}
+});</code></pre>
+			<p>Those two examples will give the exact same result.</p>
+			<div class="alert alert-info">When passing the address, we convert it into latitude and longitude internally using Google Maps Geocoder, it's important to watch the <a href="https://developers.google.com/maps/documentation/geocoding/index#Limits"><strong>usage limit</strong></a>. I would recommend, if you can, to get the latitude and longitude manually and pass them as an array.
+			</div>
+		</div>
+	</div>
+	<div class="span6">
+		<div id="marker-paris-map" style="width: 100%; height: 300px;"> </div>
+	</div>
+</div>
