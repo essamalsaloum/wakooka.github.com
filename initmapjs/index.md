@@ -4,7 +4,8 @@ layout: initmapjs
 
 ## About
 
-__initmap.js__ allows you to embed Google Maps in a __nice, quick, and easy way__. The main goal of the plugin is to get rid of the boilerplate code to embed a Google Map. It gives you __flexibility__ if you need to do more complex things.
+__initmap.js__ allows you to embed Google Maps in a __nice, quick, and easy way__. 
+The plugin gets rid of the boilerplate code to embed a Google Map. It gives you __flexibility__ if you need to do more complex things.
 
 - HTML 5 Geolocation
 - Markers
@@ -161,7 +162,7 @@ They both need to be loaded before __initmap.js__ like this:
 		<td><a href="#geolocation_center">marker</a></td>
 		<td>boolean or object</td>
 		<td>false</td>
-		<td>true to add a dafault marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
+		<td>true to add a default marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
 	</tr>
 </table>
 
@@ -218,14 +219,15 @@ They both need to be loaded before __initmap.js__ like this:
 ---------------------------------------------------------------------
 
 ### Markers
-To add markers to the map:
 
 	$('#map').({
 		markers : {
-			marker1 : { position: [ 0 , 0 ] } 
+			marker1 : { position: [ 0 , 0 ] },
+			paris_marker : { position: [ 0 , 0 ] },
 		}
 	});
-<div class="alert alert-info">In the example above, note that <strong>'marker1'</strong> can be anything, it's a marker id so that we can retrieve the id using marker.get('marker_id')</div>
+	
+<div class="alert alert-info">In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything.</div>
 
 #### Markers options
 
@@ -239,13 +241,22 @@ To add markers to the map:
 	<tr>
 		<td>position</td>
 		<td>array or string</td>
-		<td></td>
+		<td>[]</td>
 		<td>Plain text address, or array of latitude / longitude: [ lat , lng ]</td>
 	</tr>
 	<tr>
 		<td>infowindow</td>
 		<td>object</td>
 		<td>{}</td>
-		<td>true to add a dafault marker on the user position, or <a href="#marker">Marker Object</a> to customise it</td>
+		<td><a href="#infowindow">Infowindow object</a></td>
+	</tr>
+	<tr>
+		<td>options</td>
+		<td>object</td>
+		<td>{}</td>
+		<td>
+			You can specify any property that is defined in 
+			<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>, e.g: <code>options : { icon: 'icon.png', title: 'Paris marker' }
+		</td>
 	</tr>
 </table>
