@@ -256,7 +256,7 @@ They both need to be loaded before __initmap.js__ like this:
 		<td>{}</td>
 		<td>
 			You can specify any property that is defined in 
-			<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>, e.g: <code>options : { icon: 'icon.png', title: 'Paris marker' }
+			<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>, e.g: <code>options : { icon: 'icon.png', title: 'Paris marker' }</code>
 		</td>
 	</tr>
 </table>
