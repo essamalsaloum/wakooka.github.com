@@ -268,7 +268,7 @@ They both need to be loaded before __initmap.js__ like this:
 	<div class="span6">
 		<div class="well">
 			<p>You can either pass a plain text address, or an array of latitude and longitude:</p>
-			<pre><code>$('#map').initMap({
+			<pre><code class="javascript">$('#map').initMap({
 	center: [ 48.861553 , 2.351074 ], // Set the center the map to Paris
 	markers : {
 		paris_marker: { position: 'Paris, France' },
@@ -277,7 +277,7 @@ They both need to be loaded before __initmap.js__ like this:
 });
 			</code></pre>
 			<p>or</p>
-			<pre><code>$('#map').initMap({ 
+			<pre><code class="javascript">$('#map').initMap({ 
 	center: [ 48.861553 , 2.351074 ], // Set the center the map to Paris
 	markers : {
 		paris_marker: { position: [ 48.861553 , 2.351074 ] },
