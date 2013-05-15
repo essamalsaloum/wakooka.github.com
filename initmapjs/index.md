@@ -324,7 +324,6 @@ They both need to be loaded before __initmap.js__ like this:
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
-
 			<pre><code class="javascript">$('#map').initMap({ 
 	// Set the center the map to Paris
 	center: [ 48.861553 , 2.351074 ],
@@ -332,6 +331,7 @@ They both need to be loaded before __initmap.js__ like this:
 		paris_marker: { position: [ 48.861553 , 2.351074 ], animation: 'bounce' },
 	}
 });</code></pre>
+		</div>
 	</div>
 	<div class="span6">
 		<div id="marker-animation-map" style="width: 100%; height: 300px;"> </div>
