@@ -326,6 +326,7 @@ They both need to be loaded before __initmap.js__ like this:
 </div>
 
 --------------------------------------------------------------------
+
 #### Marker animation
 
 <div class="row-fluid">
