@@ -310,7 +310,14 @@ They both need to be loaded before __initmap.js__ like this:
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
-			<pre><code class="javascript">$('#map').initMap({ marker : { marker: true } });</code></pre>
+			<pre><code class="javascript">$('#map').initMap({
+    markers : {
+        'paris_marker' : {
+            position: [ 48.861553 , 2.351074 ],
+            info_window : { content :'paris' } 
+        }
+    }  
+});</code></pre>
 		</div>
 	</div>
 	<div class="span6">
