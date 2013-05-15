@@ -328,7 +328,10 @@ They both need to be loaded before __initmap.js__ like this:
 	// Set the center the map to Paris
 	center: [ 48.861553 , 2.351074 ],
 	markers : {
-		paris_marker: { position: [ 48.861553 , 2.351074 ], animation: 'bounce' },
+		paris_marker: { 
+			position: [ 48.861553 , 2.351074 ], 
+			animation: 'bounce' 
+		},
 	}
 });</code></pre>
 		</div>
