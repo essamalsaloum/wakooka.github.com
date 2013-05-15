@@ -83,6 +83,13 @@
                     london : { position: [ 51.526261, -0.119476 ] }
                 } 
             });
+            $('#marker-animation-map').initMap({ 
+                // Set the center the map to Paris
+                center: [ 48.861553 , 2.351074 ],
+                markers : {  
+                    paris_marker : { position: [ 48.861553 , 2.351074 ], animation: 'bounce' }
+                } 
+            });
         </script>
     </body>
 </html>
