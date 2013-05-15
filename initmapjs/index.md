@@ -227,7 +227,9 @@ They both need to be loaded before __initmap.js__ like this:
 		}
 	});
 	
-<div class="alert alert-info">In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything.</div>
+<div class="alert alert-info">
+	In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything.
+</div>
 
 #### Markers options
 
@@ -239,16 +241,22 @@ They both need to be loaded before __initmap.js__ like this:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>position</td>
+		<td><a href="#marker_position">position</a></td>
 		<td>array or string</td>
 		<td>[]</td>
 		<td>Plain text address, or array of latitude / longitude: [ lat , lng ]</td>
 	</tr>
 	<tr>
-		<td>infowindow</td>
+		<td><a href="#infowindow">infowindow</a></td>
 		<td>object</td>
 		<td>{}</td>
-		<td><a href="#infowindow">Infowindow object</a></td>
+		<td>Infowindow object</td>
+	</tr>
+	<tr>
+		<td><a href="#animation">animation</a></td>
+		<td>string</td>
+		<td>''</td>
+		<td>2 options available: <code>bounce</code>, <code>drop</code></td>
 	</tr>
 	<tr>
 		<td>options</td>
@@ -293,6 +301,20 @@ They both need to be loaded before __initmap.js__ like this:
 	</div>
 	<div class="span6">
 		<div id="marker-paris-map" style="width: 100%; height: 300px;"> </div>
+	</div>
+</div>
+
+-----------------------------------------------------------------
+
+#### Infowindow
+<div class="row-fluid">
+	<div class="span6">
+		<div class="well">
+			<pre><code class="javascript">$('#map').initMap({ marker : { marker: true } });</code></pre>
+		</div>
+	</div>
+	<div class="span6">
+		<div id="infowindow-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
 
