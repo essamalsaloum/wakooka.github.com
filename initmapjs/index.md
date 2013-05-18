@@ -203,6 +203,7 @@ They both need to be loaded before __initmap.js__ like this:
 </div>
 
 --------------------------------------------------------------------
+
 #### Geolocation marker
 <div class="row-fluid">
 	<div class="span6">
@@ -270,6 +271,7 @@ They both need to be loaded before __initmap.js__ like this:
 </table>
 
 --------------------------------------------------------------------
+
 #### Marker position
 
 <div class="row-fluid">
@@ -286,11 +288,13 @@ They both need to be loaded before __initmap.js__ like this:
 });
 			</code></pre>
 			<p>or</p>
-			<pre><code class="javascript">$('#map').initMap({ 
+			<pre><code class="javascript">
+var paris_latlng =  [ 48.861553 , 2.351074 ];
+$('#map').initMap({ 
 	// Set the center the map to Paris
-	center: [ 48.861553 , 2.351074 ],
+	center: paris_latlng,
 	markers : {
-		paris_marker: { position: [ 48.861553 , 2.351074 ] },
+		paris_marker: { position: paris_latlng },
 		london : { position: [ 51.526261, -0.119476 ] }
 	}
 });</code></pre>
@@ -306,13 +310,18 @@ They both need to be loaded before __initmap.js__ like this:
 
 -----------------------------------------------------------------
 
-#### Infowindow
+### Infowindow
+
+
+#### Infowindow options
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
-			<pre><code class="javascript">$('#map').initMap({
+			<pre><code class="javascript">
+$('#map').initMap({
+
     markers : {
-        'paris_marker' : {
+        paris_marker : {
             position: [ 48.861553 , 2.351074 ],
             info_window : { content :'paris' } 
         }
