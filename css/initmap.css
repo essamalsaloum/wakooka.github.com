@@ -5,7 +5,7 @@ body {
     padding: ;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     position: relative;
-    padding-top: 70px;
+    padding: 70px 0 40px 0;
 }
 
 .header-wrapper {
@@ -84,7 +84,6 @@ header .btn span {
     background: #dcdcdc;
     padding: 10px;
 }
-/*.content h3, .content h4 { padding-top: 90px }*/
 
 /** Fixes conflict between bootstrap/google maps **/
 div[id$=map] label { width: auto; display:inline; }

@@ -17,8 +17,8 @@ The plugin gets rid of the boilerplate code to embed a Google Map. It also gives
 
 __initmap.js__ has two dependencies:
 
-- jQuery 
-- Google Maps
+- jQuery (minimum 1.9.1), initmap.js has been developped and tested using jQuery 1.9.1, no support will be added for previous versions
+- Google Maps (v3)
 
 They both need to be loaded before __initmap.js__ :
 
