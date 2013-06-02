@@ -15,117 +15,129 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
         <script src="/js/initmap.min.js" type="text/javascript"></script>
+        <script src="/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="navbar navbar-fixed-top">
+         <a href="https://github.com/jeromesmadja/initmap.js">
+            <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+        </a>
+        <nav class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li class="active"><a href="./index.html">About</a></li>
-                        <li><a href="#getting_started">Getting Started</a></li>
-                        <li><a href="#documentation">Documentation</a></li>
-                        <li><a href="#examples">Examples</a></li>
+                        <li{% if page.menu_active == 'index' %} class="active"{% endif %}>
+                            <a href="./index.html">About</a>
+                        </li>
+                        <li{% if page.menu_active == 'documentation' %} class="active"{% endif %}>
+                            <a href="./documentation.html">Documentation</a>
+                            <ul class="container documentation-items">
+                                <li><a href="#basic_options">Basic options</a></li>
+                                <li class="hidden-tablet hidden-phone">|</li>
+                                <li><a href="#marker">Marker</a></li>
+                                <li class="hidden-tablet hidden-phone">|</li>
+                                <li><a href="#geolocation">Geolocation</a></li>
+                                <li class="hidden-tablet hidden-phone">|</li>
+                                <li><a href="#infowindow">InfoWindow</a></li>
+                                <li class="hidden-tablet hidden-phone">|</li>
+                                <li><a href="#control">Control</a></li>
+                            </ul>
+                        </li>
+                       <!--  <li{% if page.menu_active == 'examples' %} class="active"{% endif %}>
+                            <a href="./examples.html">Examples</a>
+                        </li> -->
                     </ul>
                 </div>
            </div>
-        </div>
-        <div class="header-wrapper">
-            <header>
-                <div class="container">
-                    <div class="row-fluid">
-                        <div class="span6">
-                            <h1>initmap.js <br><span>a tiny jQuery plugin for embedding Google Maps</span></h1>
-                             <p>
-                                <a href="#" class="btn btn-large btn-info">
-                                    Download initmap.min.js
-                                </a> 
-                                <a href="#" class="btn btn-large">
-                                    View on Github
-                                </a>
-                            </p>
-                        
-                                <ul>
-                                   <!--  <li>HTML 5 Geolocation</li>
-                                    <li>Markers</li>
-                                    <li>Info Windows</li>
-                                    <li>Controls</li> -->
-                                </ul>
-                            
-                        </div>
-                        <div class="span6 buttons">
-                            <div id="header-map" style="width:100%; height:300px;"></div>    
-                        </div>
-                     </div>
-                </div>
-            </header>
-        </div>
+        </nav>
+        {% if page.menu_active == 'index' %}
+        <header class="header-wrapper">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <h1>initmap.js <br><span>a tiny jQuery plugin for embedding Google Maps</span></h1>
+                         <p>
+                            <a href="#" class="btn btn-large btn-info">
+                                Download initmap.min.js
+                            </a> 
+                            <a href="https://github.com/jeromesmadja/initmap.js" class="btn btn-large">
+                                View on Github
+                            </a>
+                        </p>
+                    </div>
+                    <div class="span6 buttons">
+                        <div id="header-map" style="width:100%; height:300px;"></div>    
+                    </div>
+                 </div>
+            </div>
+        </header>
+        {% endif %}
         <div class="container content">
-                <div class="row">
-                    <div class="span12">
-                        <section>
-                            {{ content }}
-                        </section>
-                    </div> <!-- .span12 -->
-                </div> <!-- .row-fluid -->
+            <section id="content">
+                {{ content }}
+            </section>
         </div> <!-- .container -->
-        <footer></footer>
         <script>
             // For syntax highlighting
             [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
                 hljs.highlightBlock( element );
             });
+
             var paris_latlng = [ 48.861553 , 2.351074 ],
-                melbourne_latlng = [ -37.764201 , 144.9646 ];
+                melbourne_latlng = [ -37.764201 , 144.9646 ],
+                london_latlng = [ 51.526261, -0.119476 ];
+        </script>
+        {% if page.menu_active == 'index' %}
+        <script>
             // Init the maps
-            $('#header-map').initMap({
-                center: [ -27.137368 , 134.560547 ],
-                type: 'roadmap',
-                controls : {
-                     map_type : {
-                         type : [],
-                     },
-                     overview : false,
-                     pan : false,
-                     rotate : false,
-                     scale : false,
-                     street_view : false,
-                     zoom : false,
-                     scrollwheel: false
-                },
-                markers: {
-                    melbourne_marker : {
-                        position: melbourne_latlng ,
-                        info_window: {
-                            content : 'Welcome to Melbourne'
+            var header_map = $('#header-map');
+            // header map only on the homepage
+            if ( header_map.length ) 
+            {
+                $('#header-map').initMap({
+                    center: [ -27.137368 , 134.560547 ],
+                    type: 'roadmap',
+                    markers: {
+                        melbourne_marker : {
+                            position: melbourne_latlng ,
+                            info_window: {
+                                content : 'Welcome to Melbourne, Australia'
+                            }
                         }
+                    },
+                    options: 
+                    { 
+                        disableDefaultUI: true,
+                        zoom: 3,
+                        styles : [
+                        {
+                            "featureType": "water",
+                            "stylers": [{ "color": "#255f80" }]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "stylers": [{ "hue": "#ff1a00" }]
+                        },
+                        { 
+                            "featureType": "road",
+                            "stylers": [{ "hue": "#ff6e00" }]
+                        },
+                        { 
+                            "featureType": "administrative",
+                            "stylers": [
+                                { "color": "#808080" },
+                                { "weight": 0.4 }
+                            ]
+                        }]
                     }
-                },
-                options: 
-                { 
-                    zoom: 3,
-                    styles : [
-                    {
-                        "featureType": "water",
-                        "stylers": [{ "color": "#255f80" }]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "stylers": [{ "hue": "#ff1a00" }]
-                    },
-                    { 
-                        "featureType": "road",
-                        "stylers": [{ "hue": "#ff6e00" }]
-                    },
-                    { 
-                        "featureType": "administrative",
-                        "stylers": [
-                            { "color": "#808080" },
-                            { "weight": 0.4 }
-                        ]
-                    }]
-                }
-            });
+                });
+            }
+            
             $('#basic-map').initMap();
+        </script>
+        {% endif %}
+        {% if page.menu_active == 'documentation' %}
+        <script>
+            // Documentation maps
             $('#center-map').initMap({ center: paris_latlng });
             $('#type-map').initMap({ type: 'roadmap' });
             $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
@@ -135,27 +147,95 @@
                 center: paris_latlng, // Set the center the map to Paris
                 markers : {  
                     paris_marker : { position: paris_latlng },
-                    london : { position: [ 51.526261, -0.119476 ] }
+                    london : { position: london_latlng  }
                 } 
             });
 
-            $('#infowindow-map').initMap({ 
-                // Set the center the map to Paris
-                center: paris_latlng,
-                markers : {
-                    paris_marker : {
-                        position: paris_latlng,
-                        info_window : { content :'paris' } 
-                    }
-                } 
-            });
             $('#marker-animation-map').initMap({
                 // Set the center the map to Paris
                 center: paris_latlng,
                 markers : {  
-                    paris_marker : { position: [ 48.861553 , 2.351074 ], animation: 'bounce' }
+                    paris_marker : { position: paris_latlng, animation: 'bounce' }
                 } 
             });
+
+            $('#infowindow-example-map').initMap({ 
+                // Set the center the map to Paris
+                center: paris_latlng,
+                markers : {
+                    london_marker : {
+                        position: 'london, UK',
+                        info_window : { 
+                            content :'Showing on mouseover and hiding on mouseout',
+                            showOn: 'mouseover',
+                            hideOn: 'mouseout',
+                            maxWidth: 150,
+                            zIndex: 2
+                        } 
+                    },
+                    paris_marker : {
+                        position: paris_latlng,
+                        info_window : { 
+                            content :'Showing on click',
+                            maxWidth: 350,
+                            zIndex: 1
+                        } 
+                    }
+                } 
+            });
+
+            $('#control-example-map').initMap({
+                type: 'roadmap' ,
+                controls : {
+                    map_type : 
+                    {
+                        type : ['roadmap', 'satellite', 'hybrid'],
+                        position : 'top_left',
+                        style: 'dropdown_menu'
+                    },
+                    overview : { opened : true },
+                    pan : false,
+                    rotate : false,
+                    scale : true,
+                    street_view : { position : 'top_center' },
+                    zoom : {
+                        position : 'top_right',
+                        style: 'large'
+                    }
+                }
+            });
+
+            $('a[href^=#]').on('click' , function(e) 
+            {   
+                // Prevent default bahaviour
+                e.preventDefault();
+
+                // Get element to scroll to, and set the offset
+                var current_elem = $( $(this).attr('href') ), 
+                    offset = 80;
+
+                if ( current_elem.length ) {
+                    $('body').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
+                }
+            });
+            // If user types the hashtag in url, 
+            // or direct url 
+            $(window).on('hashchange', function() {
+                 $('a[href=' + location.hash +']').trigger('click');
+            }).trigger('hashchange');
+        </script>
+        {% endif %}
+        <script>
+            // Google Analytics 
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36225677-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
         </script>
     </body>
 </html>
