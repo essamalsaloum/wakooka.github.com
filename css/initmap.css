@@ -89,9 +89,6 @@ header .btn span {
 div[id$=map] label { width: auto; display:inline; }
 div[id$=map] img { max-width: none; }
 
-/* Footer */
-footer {}
-
 @media (max-width: 979px) {
     body { padding-top: 0; }
     .navbar { padding-bottom: 5px; }

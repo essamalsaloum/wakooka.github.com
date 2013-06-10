@@ -8,16 +8,16 @@ menu_active: index
 __initmap.js__ allows you to embed Google Maps in a __nice, quick, and easy way__.   
 The plugin gets rid of the boilerplate code to embed a Google Map. It also gives you __flexibility__ if you need to do more complex things.
 
-- HTML 5 Geolocation, get the user location
-- Markers API to get, remove, update marker on the map 
-- InfoWindows, can get attached to a marker easily
-- Controls, show/hide, and position each control on the map
+- __HTML 5 Geolocation__, get the user location
+- __Markers API__ to get, remove, update marker on the map 
+- __InfoWindows__, can get attached to a marker easily
+- __Controls__, show/hide, and position each control on the map
 
 ## Getting Started
 
 __initmap.js__ has two dependencies:
 
-- jQuery (minimum 1.9.1), initmap.js has been developped and tested using jQuery 1.9.1, no support will be added for previous versions
+- jQuery (minimum 1.9.1), initmap.js has been developped and tested using jQuery 1.9.1, no support will be added for previous versions;
 - Google Maps (v3)
 
 They both need to be loaded before __initmap.js__ :
@@ -26,7 +26,7 @@ They both need to be loaded before __initmap.js__ :
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 	<script src="path_to_js_directory/initmap.min.js" type="text/javascript"></script>
 
-<p><a href="#" class="btn btn-info">Download initmap.js</a></p>
+<p><a href="https://raw.github.com/jeromesmadja/initmap.js/master/dist/initmap.min.js" class="btn btn-info">Download initmap.js</a></p>
 
 -----------------------------------------------------------
 

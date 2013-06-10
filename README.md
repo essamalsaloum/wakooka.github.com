@@ -1,2 +1,2 @@
-initmap.js
+# Blog
 ==========
