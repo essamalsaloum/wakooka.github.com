@@ -494,7 +494,7 @@ $('#map').initMap({
             } 
         },
         paris_marker : {
-            position: paris_latlng,
+            position: 'Paris, France',
             info_window : { 
                 content :'Showing on click',
                 maxWidth: 350,
