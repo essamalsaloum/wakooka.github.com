@@ -387,6 +387,13 @@ $('#map').initMap({
 			</a> 
 		</td>
 	</tr>
+	<tr>
+		<td>unsupported()</td>
+		<td>-</td>
+		<td>
+			This function will be invoked, if the browser doesn't support HTML5 geolocation
+		</td>
+	</tr>
 </table>
 
 ---------------------------------------------------------
@@ -417,6 +424,43 @@ $('#map').initMap({
 	</div>
 	<div class="span6">
 		<div id="geolocation-marker-map" style="width: 100%; height: 300px;"> </div>
+	</div>
+</div>
+
+-----------------------------------------------------------------
+
+#### Using geolocation callbacks
+<div class="row-fluid">
+	<div class="span6">
+		<div class="well">
+			An example using all the callback functions available
+			<pre><code class="javascript">$('#map').initMap({ 
+    geolocation: { 
+        marker: true,
+        success: function( position ) {
+            // position = Position Object
+        },
+        error: function( error ) {
+            if ( error.code == 1 ) {
+            // PERMISSION_DENIED
+            }
+            if ( error.code == 2 ) {
+            // POSITION_UNAVAILABLE 
+            }
+            if ( error.code == 3 ) {
+            // TIMEOUT 
+            }
+        },
+        unsupported: function() {
+            // Do something
+            // Tell the user that their browser is old
+        }
+    }
+});</code></pre>
+		</div>
+	</div>
+	<div class="span6">
+		<div id="geolocation-callback-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
 

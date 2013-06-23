@@ -20,9 +20,9 @@
         <script src="/js/initmap.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <!--  <a href="https://github.com/jeromesmadja/initmap.js">
-            <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
-        </a> -->
+         <a href="https://github.com/jeromesmadja/initmap.js">
+            <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+        </a>
         <nav class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -157,6 +157,7 @@
             $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
             $('#geolocation-center-map').initMap({ geolocation: { center: true } });
             $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
+            $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
             $('#marker-paris-map').initMap({ 
                 center: paris_latlng, // Set the center the map to Paris
                 markers : {  
