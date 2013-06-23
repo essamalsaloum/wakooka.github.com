@@ -5,7 +5,7 @@ body {
     padding: ;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     position: relative;
-    padding: 70px 0 40px 0;
+    padding: 70px 0 0 0;
 }
 
 .header-wrapper {
@@ -112,5 +112,16 @@ div[id$=map] img { max-width: none; }
         display: block;
         margin: 10px 0;
     }
-
+}
+#footer {
+    background: #3f3f3f;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    margin-top: 40px;
+    padding: 10px 0;
+    text-align: right;
+}
+#footer-content {
+    line-height: 30px;
+    padding-right: 50px;
 }
