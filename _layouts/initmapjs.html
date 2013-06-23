@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
         <title>jQuery plugin for Google Maps - initmap.js</title>
 
@@ -12,15 +11,18 @@
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/initmap.css">
         <link rel="stylesheet" href="/css/zenburn.min.css">
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
         <script src="/js/highlight.min.js" type="text/javascript"></script>
         <script src="/js/jquery.min.js" type="text/javascript"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
         <script src="/js/initmap.min.js" type="text/javascript"></script>
     </head>
     <body>
-         <a href="https://github.com/jeromesmadja/initmap.js">
+        <!--  <a href="https://github.com/jeromesmadja/initmap.js">
             <img style="position: fixed; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
-        </a>
+        </a> -->
         <nav class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -227,7 +229,7 @@
                     offset = 80;
 
                 if ( current_elem.length ) {
-                    $('body').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
+                    $('body, html').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
                 }
             });
             // If user types the hashtag in url, 
