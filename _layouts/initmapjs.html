@@ -21,9 +21,12 @@
     </head>
     <body>
          <a href="https://github.com/jeromesmadja/initmap.js">
-            <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+            <img id="forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
         </a>
-        <nav class="navbar navbar-fixed-top">
+        {% if page.menu_active == 'documentation' %}
+            <a id="back-to-top" class="visible-desktop" href="#option-reference" title="Back to top">&#x25B2;</a>
+        {% endif %}
+        <nav id="navbar" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
@@ -32,21 +35,7 @@
                         </li>
                         <li{% if page.menu_active == 'documentation' %} class="active"{% endif %}>
                             <a href="./documentation.html">Documentation</a>
-                            <ul class="container documentation-items">
-                                <li><a href="#basic_options">Basic options</a></li>
-                                <li class="hidden-tablet hidden-phone">|</li>
-                                <li><a href="#marker">Marker</a></li>
-                                <li class="hidden-tablet hidden-phone">|</li>
-                                <li><a href="#geolocation">Geolocation</a></li>
-                                <li class="hidden-tablet hidden-phone">|</li>
-                                <li><a href="#infowindow">InfoWindow</a></li>
-                                <li class="hidden-tablet hidden-phone">|</li>
-                                <li><a href="#control">Control</a></li>
-                            </ul>
                         </li>
-                       <!--  <li{% if page.menu_active == 'examples' %} class="active"{% endif %}>
-                            <a href="./examples.html">Examples</a>
-                        </li> -->
                     </ul>
                 </div>
            </div>
@@ -80,6 +69,29 @@
         {% endif %}
         <div class="container content">
             <section id="content">
+                {% if page.menu_active == 'documentation' %}
+                <div class="container">
+                    <div class="row-fluid">
+                        <div id="option-reference" class="submenu span3">
+                            <h5>Option Reference</h5>
+                            <ul>
+                                <li><a href="{% if page.current_page != 'documentation' %}./documentation.html{% endif %}#basic_options">Basic options</a></li>
+                                <li><a href="{% if page.current_page != 'documentation' %}./documentation.html{% endif %}#marker">Marker</a></li>
+                                <li><a href="{% if page.current_page != 'documentation' %}./documentation.html{% endif %}#geolocation">Geolocation</a></li>
+                                <li><a href="{% if page.current_page != 'documentation' %}./documentation.html{% endif %}#infowindow">InfoWindow</a></li>
+                                <li><a href="{% if page.current_page != 'documentation' %}./documentation.html{% endif %}#control">Control</a></li>
+                            </ul>
+                        </div>
+                        <div id="api-reference" class="submenu span3">
+                            <h5>API Reference</h5>
+                            <ul>
+                                <li><a href="{% if page.current_page != 'api' %}./api.html{% endif %}#basic">Basic</a></li>
+                                <li><a href="{% if page.current_page != 'api' %}./api.html{% endif %}#marker">Marker</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 {{ content }}
             </section>
         </div> <!-- .container -->
@@ -152,73 +164,75 @@
         {% if page.menu_active == 'documentation' %}
         <script>
             // Documentation maps
-            $('#center-map').initMap({ center: paris_latlng });
-            $('#type-map').initMap({ type: 'roadmap' });
-            $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
-            $('#geolocation-center-map').initMap({ geolocation: { center: true } });
-            $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
-            $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
-            $('#marker-paris-map').initMap({ 
-                center: paris_latlng, // Set the center the map to Paris
-                markers : {  
-                    paris_marker : { position: paris_latlng },
-                    london : { position: london_latlng  }
-                } 
-            });
+            if ( $('#center-map').length ) {
+                $('#center-map').initMap({ center: paris_latlng });
+                $('#type-map').initMap({ type: 'roadmap' });
+                $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
+                $('#geolocation-center-map').initMap({ geolocation: { center: true } });
+                $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
+                $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
+                $('#marker-paris-map').initMap({ 
+                    center: paris_latlng, // Set the center the map to Paris
+                    markers : {  
+                        paris_marker : { position: paris_latlng },
+                        london : { position: london_latlng  }
+                    } 
+                });
 
-            $('#marker-animation-map').initMap({
-                // Set the center the map to Paris
-                center: paris_latlng,
-                markers : {  
-                    paris_marker : { position: paris_latlng, animation: 'bounce' }
-                } 
-            });
+                $('#marker-animation-map').initMap({
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {  
+                        paris_marker : { position: paris_latlng, animation: 'bounce' }
+                    } 
+                });
 
-            $('#infowindow-example-map').initMap({ 
-                // Set the center the map to Paris
-                center: paris_latlng,
-                markers : {
-                    london_marker : {
-                        position: 'london, UK',
-                        info_window : { 
-                            content :'Showing on mouseover and hiding on mouseout',
-                            showOn: 'mouseover',
-                            hideOn: 'mouseout',
-                            maxWidth: 150,
-                            zIndex: 2
-                        } 
-                    },
-                    paris_marker : {
-                        position: paris_latlng,
-                        info_window : { 
-                            content :'Showing on click',
-                            maxWidth: 350,
-                            zIndex: 1
-                        } 
+                $('#infowindow-example-map').initMap({ 
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {
+                        london_marker : {
+                            position: 'london, UK',
+                            info_window : { 
+                                content :'Showing on mouseover and hiding on mouseout',
+                                showOn: 'mouseover',
+                                hideOn: 'mouseout',
+                                maxWidth: 150,
+                                zIndex: 2
+                            } 
+                        },
+                        paris_marker : {
+                            position: paris_latlng,
+                            info_window : { 
+                                content :'Showing on click',
+                                maxWidth: 350,
+                                zIndex: 1
+                            } 
+                        }
+                    } 
+                });
+
+                $('#control-example-map').initMap({
+                    type: 'roadmap' ,
+                    controls : {
+                        map_type : 
+                        {
+                            type : ['roadmap', 'satellite', 'hybrid'],
+                            position : 'top_left',
+                            style: 'dropdown_menu'
+                        },
+                        overview : { opened : true },
+                        pan : false,
+                        rotate : false,
+                        scale : true,
+                        street_view : { position : 'top_center' },
+                        zoom : {
+                            position : 'top_right',
+                            style: 'large'
+                        }
                     }
-                } 
-            });
-
-            $('#control-example-map').initMap({
-                type: 'roadmap' ,
-                controls : {
-                    map_type : 
-                    {
-                        type : ['roadmap', 'satellite', 'hybrid'],
-                        position : 'top_left',
-                        style: 'dropdown_menu'
-                    },
-                    overview : { opened : true },
-                    pan : false,
-                    rotate : false,
-                    scale : true,
-                    street_view : { position : 'top_center' },
-                    zoom : {
-                        position : 'top_right',
-                        style: 'large'
-                    }
-                }
-            });
+                });
+            }
 
             $('a[href^=#]').on('click' , function(e) 
             {   
@@ -227,7 +241,7 @@
 
                 // Get element to scroll to, and set the offset
                 var current_elem = $( $(this).attr('href') ), 
-                    offset = 80;
+                    offset = 50;
 
                 if ( current_elem.length ) {
                     $('body, html').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');

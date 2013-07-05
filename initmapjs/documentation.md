@@ -1,10 +1,11 @@
 ---
 layout: initmapjs
 menu_active: documentation
+current_page: documentation
 ---
 
-## Documentation
-### Basic options
+# Option Reference
+## Basic options
 <table class="table table-bordered">
 	<tr>
 		<th>Property</th>
@@ -44,7 +45,7 @@ menu_active: documentation
 
 ---------------------------------------------------
 
-#### Center
+### Center
 
 <div class="row-fluid">
 	<div class="span6">
@@ -65,7 +66,7 @@ menu_active: documentation
 
 ---------------------------------------------------
 
-#### Type
+### Type
 
 <div class="row-fluid">
 	<div class="span6">
@@ -88,7 +89,7 @@ menu_active: documentation
 
 ---------------------------------------------------
 
-#### Options
+### Options
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -105,7 +106,7 @@ menu_active: documentation
 </div>
 ---------------------------------------------------------------------
 
-### Marker
+## Marker
 You can pass multiple markers, in <code>initMap()</code>. That can be done like this:
 
 	$('#map').initMap({
@@ -116,10 +117,10 @@ You can pass multiple markers, in <code>initMap()</code>. That can be done like 
 	});
 	
 <div class="alert alert-info">
-	In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything. We store those <em>keys</em> internally, so it's easier to get an existing marker via <code>getMarker()</code> method.
+	In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything. We store those <em>keys</em> internally, so it's easier to get an existing marker via <code>markers.get()</code> method.
 </div>
 
-#### Marker options
+### Marker options
 
 <table class="table table-bordered">
 	<tr>
@@ -160,117 +161,7 @@ You can pass multiple markers, in <code>initMap()</code>. That can be done like 
 	</tr>
 </table>
 
---------------------------------------------------------------------
-
-#### Marker methods
-
-##### Add markers
-To add multiple markers to the map, you can pass an object of <a href="#marker_options">Marker objects</a>. <br>
-<p class="well">
-	markers.add({ 'key_n': <a href="#marker_options">Marker object</a>, 'key_n': <a href="#marker_options">Marker object</a>, ... })
-</p>
-<span class="label label-warning">Warning</span> <strong>key_n</strong> string needs to be different for each new marker, think of them as __unique keys__. Using the same key for multiple markers will lead to unexpected results.
-
-
-<table class="table table-bordered">
-	<tr>
-		<th>Parameters</th>
-		<th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>key_n</td>
-		<td>string</td>
-		<td>A string that needs to be different for each marker that is placed on the map, the markers are stored internally, and can be retrieved using <a href="#get_markers">markers.get('key_n')</a></td>
-	</tr>
-	<tr>
-		<td>Marker object</td>
-		<td>object</td>
-		<td>
-			See the properties available for <a href="#marker_options">Marker object</a>
-		</td>
-	</tr>
-</table>
-
------------------------------------------------------------------
-
-##### Get a marker
-
-To get a marker from the map, you can pass its unique key that you've specified when creating the marker.
-<p class="well">
-	markers.get( 'key' , handler( google.maps.marker ) )
-</p>
-
-<table class="table table-bordered">
-	<tr>
-		<th>Parameters</th>
-		<th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>key</td>
-		<td>string</td>
-		<td>Unique key that you've previously set, when creating the marker</td>
-	</tr>
-	<tr>
-		<td>handler(<a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker</a>)</td>
-		<td>function</td>
-		<td>
-			A function that will be invoked once the marker has been placed on the map. The only parameter of that function is a 
-			<a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker object</a> You can then work with the <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker methods</a> to modify the marker.
-		</td>
-	</tr>
-</table>
-----------------------------------------------------------------------------
-
-##### Get all markers
-
-To get all the markers on the map.
-<p class="well">
-	markers.all( handler( markers ) )
-</p>
-
-<table class="table table-bordered">
-	<tr>
-		<th>Parameters</th>
-		<th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>handler(markers)</td>
-		<td>function</td>
-		<td>
-			A function that will be invoked once the markers have been placed on the map. The only parameter of that function is a object containing all the markers on the map. The properties are the uniques that you've specified previously when creating the markers.
-		</td>
-	</tr>
-</table>
-
---------------------------------------------------------------------
-##### Remove a marker
-
-To remove a marker from the map.
-<p class="well">
-	markers.remove( 'key' )
-</p>
-
-<table class="table table-bordered">
-	<tr>
-		<th>Parameters</th>
-		<th>Type</th>
-		<th>Description</th>
-	</tr>
-	<tr>
-		<td>key</td>
-		<td>string</td>
-		<td>
-			A string that has been previously defined when creating the marker.
-		</td>
-	</tr>
-</table>
-
---------------------------------------------------------------------
-
-#### Marker position
+### Marker position
 
 <div class="row-fluid">
 	<div class="span6">
@@ -307,7 +198,7 @@ $('#map').initMap({
 
 --------------------------------------------------------------
 
-#### Marker animation
+### Marker animation
 
 <div class="row-fluid">
 	<div class="span6">
@@ -332,8 +223,8 @@ $('#map').initMap({
 
 ------------------------------------------------------------
 
-### Geolocation
-#### Geolocation options
+## Geolocation
+### Geolocation options
 <table class="table table-bordered">
 	<tr>
 		<th>Property</th>
@@ -361,7 +252,7 @@ $('#map').initMap({
 	</tr>
 </table>
 
-#### Geolocation callbacks
+### Geolocation callbacks
 
 <table class="table table-bordered">
 	<tr>
@@ -398,7 +289,7 @@ $('#map').initMap({
 
 ---------------------------------------------------------
 
-#### Geolocation center
+### Geolocation center
 
 <div class="row-fluid">
 	<div class="span6">
@@ -414,7 +305,7 @@ $('#map').initMap({
 
 --------------------------------------------------------------------
 
-#### Geolocation marker
+### Geolocation marker
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -429,7 +320,7 @@ $('#map').initMap({
 
 -----------------------------------------------------------------
 
-#### Using geolocation callbacks
+### Using geolocation callbacks
 <div class="row-fluid">
 	<div class="span6">
 		<div class="well">
@@ -466,7 +357,7 @@ $('#map').initMap({
 
 -----------------------------------------------------------------
 
-### InfoWindow
+## InfoWindow
 
 <table class="table table-bordered">
 	<tr>
@@ -520,7 +411,7 @@ $('#map').initMap({
 
 ------------------------------------------------------------
 
-#### InfoWindow example
+### InfoWindow example
 
 <div class="row-fluid">
 	<div class="span6">
@@ -556,7 +447,7 @@ $('#map').initMap({
 
 --------------------------------------------------------------------
 
-### Control
+## Control
 
 <div class="alert alert-info">
 For each property of the <code>controls</code> object set to <strong>false</strong> the control will be hidden, and <strong>true</strong> will display the control based on the default settings set by Google Maps itself. <br> 
@@ -633,7 +524,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 
 ------------------------------------------------------------
 
-#### Control example
+### Control example
 
 <div class="row-fluid">
 	<div class="span6">
