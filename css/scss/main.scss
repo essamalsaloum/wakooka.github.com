@@ -1,8 +1,9 @@
-@import 'normalize';
+@import 'includes/normalize';
+@import 'includes/zenburn';
 @import 'bourbon/bourbon';
-@import 'zenburn';
+
 body {
-    margin:0;
+    margin: 0;
     height: 100%;
     color: #454545;
     font-size: 14px;
@@ -263,4 +264,4 @@ code {
     }
 }
 
-@import 'small-device'
+@import 'partials/small-device'

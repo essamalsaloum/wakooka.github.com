@@ -1,13 +1,13 @@
-
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     $margin_bottom_post : 20px;
+
     .container {
-        ul.post-list h3 { 
+        ul.post-list h3 {
             margin-left: 0;
             margin-bottom: $margin_bottom_post;
         }
         .date-post {
-            border-radius: 0 0 20px 20px ; 
+            border-radius: 0 0 20px 20px ;
             position: static;
             float: left;
             margin-top: -$margin_bottom_post;
@@ -15,9 +15,9 @@
             padding-top: 5px;
         }
         .post {
-            h1 { 
+            h1 {
                 margin-left: 0;
-                margin-bottom: $margin_bottom_post; 
+                margin-bottom: $margin_bottom_post;
             }
             .date-post { margin-top: -$margin_bottom_post; }
         }

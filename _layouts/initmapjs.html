@@ -8,9 +8,9 @@
         <link href="/img/initmap/favicon.ico" rel="shortcut icon">
         <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/initmap.css">
-        <link rel="stylesheet" href="/css/zenburn.min.css">
+        <link href="/css/initmap/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/initmap/initmap.css">
+        <link rel="stylesheet" href="/css/initmap/zenburn.min.css">
         <!--[if lt IE 9]>
         <script src="/js/html5shiv.js"></script>
         <![endif]-->
@@ -23,7 +23,7 @@
          <a href="https://github.com/jeromesmadja/initmap.js">
             <img id="forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
         </a>
-       
+
         <nav id="navbar" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -55,14 +55,14 @@
                          <p>
                             <a href="https://raw.github.com/jeromesmadja/initmap.js/master/dist/initmap.min.js" class="btn btn-large btn-info">
                                 Download initmap.min.js
-                            </a> 
+                            </a>
                             <a href="https://github.com/jeromesmadja/initmap.js" class="btn btn-large">
                                 View on Github
                             </a>
                         </p>
                     </div>
                     <div class="span6 buttons">
-                        <div id="header-map" style="width:100%; height:300px;"></div>    
+                        <div id="header-map" style="width:100%; height:300px;"></div>
                     </div>
                  </div>
             </div>
@@ -97,7 +97,7 @@
             </section>
         </div> <!-- .container -->
         <footer id="footer" class="container">
-            <div class="row-fluid"> 
+            <div class="row-fluid">
                 <div id="footer-content" class="span12">
                     Created by <a href="https://www.twitter.com/jeromesmadja/">Jerome Smadja</a>
                 </div>
@@ -118,7 +118,7 @@
             // Init the maps
             var header_map = $('#header-map');
             // header map only on the homepage
-            if ( header_map.length ) 
+            if ( header_map.length )
             {
                 $('#header-map').initMap({
                     center: [ -27.137368 , 134.560547 ],
@@ -131,8 +131,8 @@
                             }
                         }
                     },
-                    options: 
-                    { 
+                    options:
+                    {
                         disableDefaultUI: true,
                         zoom: 3,
                         styles : [
@@ -144,11 +144,11 @@
                             "featureType": "landscape",
                             "stylers": [{ "hue": "#ff1a00" }]
                         },
-                        { 
+                        {
                             "featureType": "road",
                             "stylers": [{ "hue": "#ff6e00" }]
                         },
-                        { 
+                        {
                             "featureType": "administrative",
                             "stylers": [
                                 { "color": "#808080" },
@@ -158,7 +158,7 @@
                     }
                 });
             }
-            
+
             $('#basic-map').initMap();
         </script>
         {% endif %}
@@ -172,51 +172,51 @@
                 $('#geolocation-center-map').initMap({ geolocation: { center: true } });
                 $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
                 $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
-                $('#marker-paris-map').initMap({ 
+                $('#marker-paris-map').initMap({
                     center: paris_latlng, // Set the center the map to Paris
-                    markers : {  
+                    markers : {
                         paris_marker : { position: paris_latlng },
                         london : { position: london_latlng  }
-                    } 
+                    }
                 });
 
                 $('#marker-animation-map').initMap({
                     // Set the center the map to Paris
                     center: paris_latlng,
-                    markers : {  
+                    markers : {
                         paris_marker : { position: paris_latlng, animation: 'bounce' }
-                    } 
+                    }
                 });
 
-                $('#infowindow-example-map').initMap({ 
+                $('#infowindow-example-map').initMap({
                     // Set the center the map to Paris
                     center: paris_latlng,
                     markers : {
                         london_marker : {
                             position: 'london, UK',
-                            info_window : { 
+                            info_window : {
                                 content :'Showing on mouseover and hiding on mouseout',
                                 showOn: 'mouseover',
                                 hideOn: 'mouseout',
                                 maxWidth: 150,
                                 zIndex: 2
-                            } 
+                            }
                         },
                         paris_marker : {
                             position: paris_latlng,
-                            info_window : { 
+                            info_window : {
                                 content :'Showing on click',
                                 maxWidth: 350,
                                 zIndex: 1
-                            } 
+                            }
                         }
-                    } 
+                    }
                 });
 
                 $('#control-example-map').initMap({
                     type: 'roadmap' ,
                     controls : {
-                        map_type : 
+                        map_type :
                         {
                             type : ['roadmap', 'satellite', 'hybrid'],
                             position : 'top_left',
@@ -235,28 +235,28 @@
                 });
             }
 
-            $('a[href^=#]').on('click' , function(e) 
-            {   
+            $('a[href^=#]').on('click' , function(e)
+            {
                 // Prevent default bahaviour
                 e.preventDefault();
 
                 // Get element to scroll to, and set the offset
-                var current_elem = $( $(this).attr('href') ), 
+                var current_elem = $( $(this).attr('href') ),
                     offset = 50;
 
                 if ( current_elem.length ) {
                     $('body, html').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
                 }
             });
-            // If user types the hashtag in url, 
-            // or direct url 
+            // If user types the hashtag in url,
+            // or direct url
             $(window).on('hashchange', function() {
                  $('a[href=' + location.hash +']').trigger('click');
             }).trigger('hashchange');
         </script>
         {% endif %}
         <script>
-            // Google Analytics 
+            // Google Analytics
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-36225677-1']);
             _gaq.push(['_trackPageview']);
