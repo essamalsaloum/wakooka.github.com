@@ -5,7 +5,7 @@ published_date: 23 <br> Juil <br> 2013
 published: true
 ---
 
-J'aime coder, et pour cette raison j'aime gagner du temps dans mon workflow, comme je le fais avec [git en utilisant git-flow]({% post_url 2013-03-23-git-flow %}). J'ai donc chercher un moyen d'**automatiser la compilation de Sass** dans mes projets, et je suis tombé sur cette vidéo de [Jeffrey Way, _Guard is your best friend_](http://net.tutsplus.com/tutorials/tools-and-tips/guard-is-your-best-friend/).
+J'aime coder, et pour cette raison j'aime gagner du temps dans mon workflow, comme je le fais avec [git en utilisant git-flow](/2013-03-23-git-flow.html). J'ai donc chercher un moyen d'**automatiser la compilation de Sass** dans mes projets, et je suis tombé sur cette vidéo de [Jeffrey Way, _Guard is your best friend_](http://net.tutsplus.com/tutorials/tools-and-tips/guard-is-your-best-friend/).
 
 En gros, on crée un fichier (Guardfile) à la racine de notre projet, qui contient différents paramètres, comme par exemple: le dossier contenant les fichiers Sass, le dossier où les fichiers CSS sont générés, et aussi quel type de compilation ( `compressed`, `nested`, ...).
 
