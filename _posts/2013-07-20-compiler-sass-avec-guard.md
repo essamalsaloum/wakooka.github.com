@@ -1,7 +1,7 @@
 ---
 layout: blog_entry
 title: Compiler Sass avec un fichier Guard
-published_date: 20 <br> Juil <br> 2013
+published_date: 23 <br> Juil <br> 2013
 published: true
 ---
 
