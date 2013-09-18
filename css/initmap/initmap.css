@@ -9,12 +9,12 @@ body {
 }
 
 .header-wrapper {
-    background: url(../img/initmap/knitting.png);
+    background: url(/img/initmap/knitting.png);
     border-bottom: 6px solid #f95d5d;
 }
 
 .header-wrapper h1 {
-    background: url(../img/initmap/map-marker.png) no-repeat 18px 0;
+    background: url(/img/initmap/map-marker.png) no-repeat 18px 0;
     color: #f95d5d;
     font-family: 'Bree Seri', sans-serif;
     line-height: 25px;
