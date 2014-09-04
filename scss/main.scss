@@ -1,7 +1,11 @@
-@import 'includes/normalize';
-@import 'includes/zenburn';
+@import 'includes/_normalize';
+@import 'includes/_zenburn';
 @import 'bourbon/bourbon';
-
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     height: 100%;
@@ -10,6 +14,7 @@ body {
     line-height: 22px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: url('http://i46.tinypic.com/2807440.png');
+    border-top: 3px solid #238db1;
 }
 
 a {
@@ -23,11 +28,24 @@ a {
     }
 }
 
-/** Sticky footer **/
-html, body, #wrapper { height: 100%; }
-#wrapper { height: auto; min-height: 100%;}
-#container { border-top: 3px solid #238db1; }
-#container > .container { padding-bottom: 120px; }
+.container {
+    position: relative;
+}
+
+
+.main-content {
+    width: 75%;
+    float: left;
+    padding: 0 50px;
+    &.post-page {
+        float: none;
+        margin: 0 auto;
+        width: 1000px;
+    }
+}
+
+
+
 
 p { margin: 0 0 14px 0; }
 
@@ -48,12 +66,6 @@ blockquote {
     border: 1px solid #ccc;
     padding: 5px;
     text-align: left;
-}
-.container {
-    margin: 0 auto;
-    max-width: 930px;
-    padding: 0 30px 0 30px;
-    position: relative;
 }
 code {
     background: #eee;
@@ -97,7 +109,7 @@ code {
     line-height: 30px;
 }
 
-.container h4, .container h5 , .container h6  {
+.container h4, .container h5   {
     border-bottom: 1px solid #ccc;
     color: #333;
     font-size: 18px;
@@ -109,24 +121,20 @@ code {
 .container h6 { font-size: 14px; }
 .container .date-post {
     background: #238db1;
-    border-radius: 60px;
+    border-radius: 100%;
     color: #fff;
     display: block;
     font-size: 12px;
     font-weight: bold;
-    height: 55px;
+    height: 60px;
     left: 0px;
     line-height: 15px;
-    padding: 10px 10px 0 10px;
+    padding: 8px;
     position: absolute;
     text-align: center;
     text-decoration: none;
     top: 0;
-    width: 40px;
-    ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0.7)";
-    -moz-opacity: 0.7;
-    -khtml-opacity: 0.7;
-    -webkit-opacity: 0.7;
+    width: 60px;
     opacity: 0.7;
 }
 
@@ -143,7 +151,7 @@ code {
 }
 
 .container .button:hover {
-    background-color: #60187A;
+    background-color: #1B445A;
     text-decoration: none;
 }
 
@@ -202,54 +210,44 @@ code {
     color: #fff;
     background: #60187a;
 }
-.footer {
-    background: #3F3F3F;
-    height: 120px;
-    margin-top: -120px;
-    overflow: hidden;
+.bio {
+    color: #fff;
+    background: #238db1;
     position: relative;
-    width: 100%;
-
-    .footer-content {
+    width: 25%;
+    float: left;
+    border-radius: 0 0 10px 0;
+    h6 {
+        border-bottom: 1px solid #fff; 
+        margin: 0;
         color: #fff;
-        margin: 0 auto;
-        position: relative;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        font-size: 20px;
+        line-height: 20px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    a {
+        color: #fff;
+        &:hover { color: #fff; }
+    
+    }
+    .about-me { padding: 20px; }
 
-        a {
-            color: #01B7EE;
-            &:hover { color: #01B7EE; }
-        }
-        h6 {
-            color: #fff;
-            border: none;
-            font-weight: normal;
-            font-size: 18px;
-            margin: 0 0 10px 0;
-        }
-    }
-    .about-me {
-        float: left;
-        min-width: 300px;
-    }
     .additional-info {
-        float: left;
-        margin-top: 27px;
         ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            li {
-                float: left;
-                margin: 0 5px 5px 5px;
-            }
         }
         .button {
+            background-color:  #2A6586;
             background-repeat:  no-repeat ;
             background-position : left center;
+            border-bottom: 1px solid #238db1;
             padding: 12px 10px 12px 40px;
             color: #fff;
+            width: 100%;
+            border-radius: 0;
         }
         #twitter-account { background-image: url(/img/twitter-icon.png); }
         #github-account { background-image: url(/img/github-icon.png); }
@@ -264,4 +262,4 @@ code {
     }
 }
 
-@import 'partials/small-device'
+@import 'partials/small-device';

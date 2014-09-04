@@ -1,1 +1,1 @@
-auto : true
+exclude: ["node_modules", "scss", "Gemfile", "Gemfile.lock", "gulpfile.js", "package.json", "README.md"]
