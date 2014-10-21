@@ -373,10 +373,8 @@ a {
   position: relative; }
 
 .main-content {
-  width: 75%;
-  float: left;
-  padding: 0 50px;
-  max-width: 900px; }
+  width: 900px;
+  margin: 0 auto; }
   .main-content.post-page {
     float: none;
     margin: 0 auto; }
@@ -549,8 +547,6 @@ code {
   color: #fff;
   background: #238db1;
   position: relative;
-  width: 25%;
-  float: left;
   border-radius: 0 0 10px 0; }
   .bio h6 {
     border-bottom: 1px solid #fff;
@@ -590,7 +586,7 @@ code {
     background-image: url(/img/linkedin-icon.png);
     background-position: 5px center; }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 900px) {
   .main-content, .bio {
     width: 100%; }
   .main-content {

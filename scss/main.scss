@@ -34,10 +34,11 @@ a {
 
 
 .main-content {
-    width: 75%;
-    float: left;
-    padding: 0 50px;
-    max-width: 900px; 
+    width: 900px;
+    margin: 0 auto;
+    // float: left;
+    // padding: 0 50px;
+    // max-width: 900px; 
     &.post-page {
         float: none;
         margin: 0 auto;
@@ -214,8 +215,8 @@ code {
     color: #fff;
     background: #238db1;
     position: relative;
-    width: 25%;
-    float: left;
+    // width: 25%;
+    // float: left;
     border-radius: 0 0 10px 0;
     h6 {
         border-bottom: 1px solid #fff; 
