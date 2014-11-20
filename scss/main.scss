@@ -1,6 +1,9 @@
 @import 'includes/_normalize';
 @import 'includes/_zenburn';
 @import 'bourbon/bourbon';
+
+$main-color: #238db1;
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -14,11 +17,11 @@ body {
     line-height: 22px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: url('http://i46.tinypic.com/2807440.png');
-    border-top: 3px solid #238db1;
+    border-top: 3px solid $main-color;
 }
 
 a {
-    color: #238db1;
+    color: $main-color;
     text-decoration: none;
     @include transition ( all 0.5s ease-in );
 
@@ -36,17 +39,40 @@ a {
 .main-content {
     width: 900px;
     margin: 0 auto;
-    // float: left;
-    // padding: 0 50px;
-    // max-width: 900px; 
     &.post-page {
         float: none;
         margin: 0 auto;
     }
 }
+.main-nav { overflow: hidden; }
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.main-nav li {
+    float: left;
+    & + li {
+        margin-left: 20px;
+    }
+}
+.main-nav a {
+    // float: left;
+    display: block;
+    background-color: $main-color;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+   
+}
 
-
-
+.project-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.project-list li { position: relative; }
 
 p { margin: 0 0 14px 0; }
 
@@ -87,8 +113,8 @@ code {
 }
 
 .container h1,  .container h2 ,  .container h3  {
-    border-bottom: 1px solid #238DB1;
-    color: #238DB1;
+    border-bottom: 1px solid $main-color;
+    color: $main-color;
     font-size: 40px;
     line-height: 45px;
     margin-bottom: 15px;
@@ -121,7 +147,7 @@ code {
 .container h5 { font-size: 16px; }
 .container h6 { font-size: 14px; }
 .container .date-post {
-    background: #238db1;
+    background: $main-color;
     border-radius: 100%;
     color: #fff;
     display: block;
@@ -138,7 +164,10 @@ code {
     width: 60px;
     opacity: 0.7;
 }
-
+.project-list h2 {
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
 .container .home-link  { padding: 20px 0 0 0;}
 .container .read-more { text-align: right; }
 
@@ -197,7 +226,16 @@ code {
     position: absolute;
     right: 0;
 }
-.tags a.tag {
+.border-image {
+    padding: 10px;
+    border: 1px solid #ccc;
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin-bottom: 15px;
+    &:hover { border-color: $main-color; }
+}
+.tags .tag {
     background: #979292;
     border-radius: 3px;
     color: #fff;
@@ -213,7 +251,7 @@ code {
 }
 .bio {
     color: #fff;
-    background: #238db1;
+    background: $main-color;
     position: relative;
     // width: 25%;
     // float: left;
@@ -244,7 +282,7 @@ code {
             background-color:  #2A6586;
             background-repeat:  no-repeat ;
             background-position : left center;
-            border-bottom: 1px solid #238db1;
+            border-bottom: 1px solid $main-color;
             padding: 12px 10px 12px 40px;
             color: #fff;
             width: 100%;

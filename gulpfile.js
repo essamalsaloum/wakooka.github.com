@@ -1,10 +1,8 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    livereload = require('gulp-livereload');
+    sass = require('gulp-sass');
 
 gulp.task('watch', function() {
-  // livereload.listen();
-  gulp.watch('./scss/**/*.scss', ['sass']);//.on('change', livereload.changed);
+  gulp.watch('./scss/**/*.scss', ['sass']);
 });
 
 gulp.task('sass', function () {

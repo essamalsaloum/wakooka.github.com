@@ -379,6 +379,35 @@ a {
     float: none;
     margin: 0 auto; }
 
+.main-nav {
+  overflow: hidden; }
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.main-nav li {
+  float: left; }
+  .main-nav li + li {
+    margin-left: 20px; }
+
+.main-nav a {
+  display: block;
+  background-color: #238db1;
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+  font-weight: bold;
+  color: #fff; }
+
+.project-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.project-list li {
+  position: relative; }
+
 p {
   margin: 0 0 14px 0; }
 
@@ -419,8 +448,8 @@ code {
   margin: 20px 0; }
 
 .container h1, .container h2, .container h3 {
-  border-bottom: 1px solid #238DB1;
-  color: #238DB1;
+  border-bottom: 1px solid #238db1;
+  color: #238db1;
   font-size: 40px;
   line-height: 45px;
   margin-bottom: 15px; }
@@ -468,6 +497,10 @@ code {
   top: 0;
   width: 60px;
   opacity: 0.7; }
+
+.project-list h2 {
+  margin-left: 80px;
+  margin-bottom: 40px; }
 
 .container .home-link {
   padding: 20px 0 0 0; }
@@ -530,7 +563,17 @@ code {
   position: absolute;
   right: 0; }
 
-.tags a.tag {
+.border-image {
+  padding: 10px;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin-bottom: 15px; }
+  .border-image:hover {
+    border-color: #238db1; }
+
+.tags .tag {
   background: #979292;
   border-radius: 3px;
   color: #fff;
@@ -586,11 +629,11 @@ code {
     background-image: url(/img/linkedin-icon.png);
     background-position: 5px center; }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 920px) {
   .main-content, .bio {
     width: 100%; }
   .main-content {
-    padding: 15px; }
+    padding: 0 15px; }
   .container ul.post-list h3 {
     margin-left: 0;
     margin-bottom: 20px; }
@@ -605,4 +648,7 @@ code {
     margin-left: 0;
     margin-bottom: 20px; }
   .container .post .date-post {
-    margin-top: -20px; } }
+    margin-top: -20px; }
+  .project-list h2 {
+    margin-left: 0;
+    margin-bottom: 20px; } }
