@@ -10,7 +10,7 @@ layout: page
 </div>
 <section class="MainText">
 
-<p>Je suis développeur web avec 6 ans d’experience, spécialisé front-end depuis 3 ans. J'essaie d'être actif dans la communauté open-source sur mon temps libre, avec ce blog par exemple. Je fais beaucoup de veille sur Twitter.</p>
+<p>Je suis développeur web avec 6 ans d’expérience, spécialisé front-end depuis 3 ans. J'essaie d'être actif dans la communauté open-source sur mon temps libre, avec ce blog par exemple. Je fais beaucoup de veille sur Twitter.</p>
 
 <p>Je suis à l'aise avec les différents outils <a class="Link" href="http://gulpjs.com">GulpJS</a> et frameworks JS, <a class="Link" href="http://facebook.github.io/react/">react</a>, <a class="Link" href="http://backbonejs.org/">backbone</a>, côté CSS, j'utilise la méthode BEM partout où je peux.</p>
 
