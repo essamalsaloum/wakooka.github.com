@@ -9,9 +9,9 @@ published: true
 
 <p>Des réponses sont apportées avec cette technique, issue de cet article <a href="http://davidwalsh.name/device-state-detection-css-media-queries-javascript" class="Link">Device State Detection with CSS Media Queries and JavaScript</a>.</p>
 
-<p>Ce que j’aime ici c’est surtout utilisé le fichier css, où les media queries sont déjà insérés, comme d’un fichier de config pour le javascript.</p>
+<p>Ce que j’aime ici c’est surtout utiliser le fichier css, où les media queries sont déjà insérées, comme d’un fichier de config pour le javascript.</p>
 
-<p>J’ai déjà <s>utilisé</s> vu dans certains projets, l’utilisation de <a href="http://modernizr.com/" class="Link">modernizr</a> pour exécuter une partie de code seulement lorsque la taille de l’écran correspond à la media query, comme ceci : <code class="Code">Modernizr.mq('only all and (max-width: 400px)')</code></p>
+<p>J’ai déjà vu dans certains projets, l’utilisation de <a href="http://modernizr.com/" class="Link">modernizr</a> pour exécuter une partie de code seulement lorsque la taille de l’écran correspond à la media query, comme ceci : <code class="Code">Modernizr.mq('only all and (max-width: 400px)')</code></p>
 
 <p><strong>Je ne trouve pas ça terrible, car nous devons dupliquer nos media queries dans fichier CSS, et le fichier javascript</strong>. Beaucoup plus difficile à maintenir.</p>
 
