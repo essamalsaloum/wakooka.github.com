@@ -5,8 +5,11 @@ current_page: api
 ---
 
 # API reference
+
 ## Basic
+
 ### getMap()
+
 If something can not be done using initmap API, you can get the 
 <a href="https://developers.google.com/maps/documentation/javascript/reference#Map">google.maps.Map</a> object so you can use Google Maps API.
 
@@ -16,7 +19,9 @@ If something can not be done using initmap API, you can get the
 --------------------------------------------------
 
 ## Marker
+
 ### markers.add()
+
 To add multiple markers to the map, you can pass an object of <a href="./documentation.html#marker_options">Marker objects</a>. <br>
 
 	markers.add({ 'key_n': {MarkerObject}, 'key_n': {MarkerObject}, ... })

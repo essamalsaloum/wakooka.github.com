@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Reactjs Stopwatch Demo</title>
+    <meta name="description" content="A little Stopwatch demo using Reactjs">
+    <style type="text/css">
+        @font-face {
+            font-family: 'digital_dreamregular';
+            src: url('fonts/DIGITALDREAM-webfont.eot');
+            src: url('fonts/DIGITALDREAM-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('fonts/DIGITALDREAM-webfont.woff') format('woff'),
+                 url('fonts/DIGITALDREAM-webfont.ttf') format('truetype'),
+                 url('fonts/DIGITALDREAM-webfont.svg#digital_dreamregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: arial, sans-serif;
+            background-color: #3C6B7C;
+            padding: 0;
+            color: #666;
+            font-size: 16px;
+        }
+        .StopWatchApp {
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 800px;
+        }
+        .StopWatchApp.is-running .Time {
+            background-color: #000;
+            border: 2px solid #fff;
+        }
+        .Time {
+            transition: all 800ms ease-in-out;
+            border: 2px solid #ccc;
+            padding: 20px;
+            background-color: #333;
+            color: #00d8ff;
+            margin: 20px 0;
+            position: relative;
+            text-align: center;
+        }
+            .Time-value { font-family: 'digital_dreamregular'; }
+            .Time-label { 
+                color: #00d8ff;
+                margin: 0;
+                top: 0;
+                left: 0;
+                position: absolute;
+                font-size: 0.8rem;
+                padding: 5px; 
+            }
+        .Controls {
+            background: #ccc;
+            padding: 10px;
+        }
+            .Controls [class^="Button"] {
+                width: 30%;
+                margin: 0 5px;
+            }
+
+        .Button, .Button--secondary {
+            display: inline-block;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            color: #FFF;
+            font-size: 0.8rem;
+            background: #cc7a6f;
+            color: #fafafa;
+        }
+        .Button--secondary {
+            background: #f2f2f2;
+            color: #111111;
+        }
+        
+        [disabled] { opacity: 0.5; }
+        
+        .Results {
+            background-color: #eee;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+            .Results th { 
+                padding: 10px; 
+                border: 1px solid #ccc;
+            }
+            .Results td {
+                color: #2B3F48;
+                border: 1px solid #ccc;
+                padding: 15px;
+            }
+            .Results td.is-positive { color: #FF4136  }
+            .Results td.is-negative { color: #2ECC40; }
+        
+        .Footer {
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+             .Footer .Footer-link {
+                color: #fff;
+             }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/react-with-addons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.2/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+</head>
+<body>
+    <div id="container">
+       Something's gone wrong... :/
+    </div>
+    <script type="text/jsx;harmony=true">
+        const initialState = {
+            start: 0,
+            lap: 0,
+            mSecondsElapsedTotal: 0,
+            mSecondsElapsedLap: 0,
+            isRunning: false,
+            results: []
+        };
+        function secondsToString(ms) {
+            return moment().hour(0).minute(0).second(0).millisecond(ms).format('HH:mm:ss.SSS');
+        } 
+        function formatDiff(ms) {
+            if ( ms == 0 ) { return '-'; }
+            if ( ms < 0 ) {
+                return moment.duration(ms).asSeconds();
+            }
+            else {        
+                return "+" + moment.duration(ms).asSeconds();
+            }
+        }
+        
+        class StopWatchList extends React.Component {
+            constructor() {}
+            render() {
+                var cx = React.addons.classSet,
+                    type = cx({
+                        'is-positive': this.props.data.diff > 0 ? true : false,
+                        'is-negative': this.props.data.diff < 0 ? true : false
+                    }),
+                    diff = formatDiff(this.props.data.diff),
+                    lap = secondsToString( this.props.data.lap ),
+                    total = secondsToString( this.props.data.total );
+                return  (
+                    <tr>
+                      <td>{this.props.index}</td>
+                      <td className={type}>{diff}</td>
+                      <td>{lap}</td>
+                      <td>{total}</td>
+                  </tr>
+                );
+            }
+        }
+        class StopWatchApp extends React.Component {
+            constructor() {
+                this.state = initialState;
+                // Bind all methods
+                this.tick = this.tick.bind(this);
+                this.handleStartAndStop = this.handleStartAndStop.bind(this);
+                this.handleLap = this.handleLap.bind(this);
+                this.handleReset = this.handleReset.bind(this);
+            }
+            tick() {
+                var mSecondsElapsedTotal = new Date().getTime() - this.state.start,
+                    mSecondsElapsedLap = new Date().getTime() - this.state.lap;
+
+                this.setState({ mSecondsElapsedTotal: mSecondsElapsedTotal, mSecondsElapsedLap: mSecondsElapsedLap })
+            }
+            handleStartAndStop() {
+                if ( this.state.isRunning ) {
+                    this.handleStop();
+                    return; 
+                }
+                var startValue = this.state.start;
+                if ( this.state.start === 0 ) {
+                    startValue = new Date().getTime();
+                }
+                this.setState({ 
+                    start: startValue,
+                    isRunning: true,
+                    lap: new Date().getTime()
+                });
+                this.interval = setInterval(this.tick.bind(this), 10);
+            } 
+            handleLap() {
+                if ( !this.state.isRunning ) { return; }
+                var oldResults = this.state.results,
+                    newLap = {
+                        key: new Date().getTime(),
+                        lap : this.state.mSecondsElapsedLap,
+                        total : this.state.mSecondsElapsedTotal,
+                        diff: 0
+                    };
+                // Diff
+                if ( this.state.results.length >= 1 ) {
+                    newLap.diff = newLap.lap - this.state.results[this.state.results.length-1].lap;
+                }
+                // Adding the new lap to the results
+                var newResults = oldResults.concat([newLap]);
+                // New lap
+                this.setState({ 
+                    lap: new Date().getTime(),
+                    results: newResults
+                });
+            }
+            handleStop() {
+                this.handleLap();
+                this.setState({ isRunning : false });
+                clearInterval( this.interval );
+            } 
+            handleReset() {
+                this.setState( initialState );
+            }
+            render() {
+                var cx = React.addons.classSet,
+                    appClassState = cx({
+                        'StopWatchApp': true,
+                        'is-running': this.state.isRunning,
+                    }),
+                    ms = secondsToString( this.state.mSecondsElapsedTotal ),
+                    msLap = secondsToString( this.state.mSecondsElapsedLap ),
+                    labelStart = this.state.isRunning ? 'Stop' : 'Start',
+                    results = this.state.results;
+                return (
+                    <div className={appClassState}>
+                        <div className="Time">
+                            <h2 className="Time-label">Total</h2>
+                            <span className="Time-value">{ms}</span>
+                        </div>
+                        <div className="Time">
+                             <h2 className="Time-label">Lap</h2>
+                             <span className="Time-value">{msLap}</span>
+                        </div>
+                        <div className="Controls">
+                            <button className="Button"  type="button" onClick={this.handleStartAndStop}>{labelStart}</button>
+                            <button className="Button--secondary" type="button" onClick={this.handleLap} disabled={this.state.isRunning ? '' : 'disabled'}>Lap</button>
+                            <button className="Button--secondary" type="button" onClick={this.handleReset} disabled={this.state.isRunning ? 'disabled' : ''}>Reset</button>
+                        </div>
+                        <table className="Results">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Diff</th>
+                                    <th>Lap</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {results.map(function(result, index) {
+                                return <StopWatchList key={result.key} index={index+1} data={result}/>
+                            })}
+                            </tbody>
+                        </table>
+                        <footer className="Footer">
+                            <a href="https://twitter.com/wakooka" className="Footer-link">@wakooka</a>
+                        </footer>
+                    </div>
+                );
+            }
+        }
+        var results = [];
+        React.render(<StopWatchApp results={results} />, document.getElementById('container'));
+    </script>
+</body>
+</html>

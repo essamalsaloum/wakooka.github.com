@@ -1,8 +1,30 @@
----
-layout: page
----
-
-<ul class="List">
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Jérôme Smadja - Développeur web - Blog  </title>
+        <meta name="description" content="Blog de Jérôme Smadja, Développeur Web, Paris">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+        <script src="http://www.google-analytics.com/ga.js" async></script>
+        <script src="/js/prism.js"></script>
+    </head>
+<body>
+    <header class="Header">
+       <nav class="Nav Nav--secondary">
+            <ul class="Nav-list">
+                <li class="Nav-listItem"><a href="/" class="AnimatedLink Link">Blog</a></li>
+                <li class="Nav-listItem"><a href="/projets.html" class="AnimatedLink Link">Projets</a></li>
+                <li class="Nav-listItem"><a href="/contact.html" class="AnimatedLink Link">Contact</a></li>
+            </ul>
+            </nav>
+    </header>
+    <ul class="List">
     <li class="List-item">
         <div class="Post-titleContainer">
             <div class="Post-fullWidth">
@@ -17,7 +39,7 @@ layout: page
         </div>
         <div class="MainText">
             <a href="/demo/stopwatch/index.html">
-                <img src="/img/stopwatch.png" class="ImgPost">
+                <img src="/img/stopwatch.png" class="ImgPost" />
             </a>
 
             <p>Réalisation d'un chronomètre pour s'essayer à ReactJS.</p>
@@ -28,7 +50,7 @@ layout: page
             <div class="Post-fullWidth">
               <span class="Post-date">Juillet 2014</span>
                   <h2 class="Post-title">
-                    <a href="http://yomontoya.com"  class="AnimatedLink Post-link">Montoya site de présentation</a>
+                    <a href="http://yomontoya.com" class="AnimatedLink Post-link">Montoya site de présentation</a>
                 </h2>
                 <div class="Tag">
                    <span class="Tag-item">html5</span>
@@ -42,7 +64,7 @@ layout: page
        <div class="MainText">
            <p>
                 <a href="http://yomontoya.com" class="Post-link">
-                    <img src="http://wakooka.github.io/img/montoya.png" class="ImgPost">
+                    <img src="http://wakooka.github.io/img/montoya.png" class="ImgPost" />
                 </a>
             </p>
             <p>Développement du site. Intégration du player Soundcloud. Animation aléatoire.</p>
@@ -53,7 +75,7 @@ layout: page
             <div class="Post-fullWidth">
               <span class="Post-date">Mai 2013</span>
                   <h2 class="Post-title">
-                    <a href="/initmapjs/"  class="AnimatedLink Post-link">Initmap.js jQuery plugin pour Google Maps</a>
+                    <a href="/initmapjs/" class="AnimatedLink Post-link">Initmap.js jQuery plugin pour Google Maps</a>
                 </h2>
                 <div class="Tag">
                     <span class="Tag-item">jQuery</span>
@@ -68,10 +90,22 @@ layout: page
         <div class="MainText">
             <p>
                 <a href="/initmapsjs/" class="Post-link">
-                    <img src="http://wakooka.github.io/img/initmapjs.png" class="ImgPost">
+                    <img src="http://wakooka.github.io/img/initmapjs.png" class="ImgPost" />
                 </a>
             </p>
             <p>Développmenet d'un plugin jQuery pour intégrer google maps facilement. Réalisation de toute la documentation.</p>
         </div>
     </li>
 </ul>
+
+    <footer class="Footer">
+        <div class="Footer-container">
+            <div class="Footer-col">
+                <a href="https://twitter.com/wakooka/" class="Link">@wakooka</a> Jérôme Smadja<br>
+                Développeur web / front-end<br>
+                Paris
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

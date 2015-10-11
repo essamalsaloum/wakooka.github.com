@@ -1,10 +1,37 @@
----
-layout: post
-title: Compiler Sass avec un fichier Guard
-published_date: 20 Juillet 2013
-published: true
----
-<section class="MainText">
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Jérôme Smadja - Développeur web - Blog  </title>
+        <meta name="description" content="Blog de Jérôme Smadja, Développeur Web, Paris">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+        <script src="http://www.google-analytics.com/ga.js" async></script>
+        <script src="/js/prism.js"></script>
+    </head>
+<body>
+    <header class="Header">
+       <nav class="Nav Nav--secondary">
+            <ul class="Nav-list">
+                <li class="Nav-listItem"><a href="/" class="AnimatedLink Link">Blog</a></li>
+                <li class="Nav-listItem"><a href="/projets.html" class="AnimatedLink Link">Projets</a></li>
+                <li class="Nav-listItem"><a href="/contact.html" class="AnimatedLink Link">Contact</a></li>
+            </ul>
+            </nav>
+    </header>
+    <div class="Hero">
+        <div class="Hero-container">
+            <span class="Post-date">20 Juillet 2013</span>
+            <h1>Compiler Sass avec un fichier Guard</h1>
+        </div>
+    </div>
+
+    <section class="MainText">
 <p class="Warning">Cet article commence à vieillir, et la solution expliquée plus bas n'est probablement pas la meilleur aujourd'hui. Il y a des solutions plus faciles à mettre en place et mieux maintenues, je pense par exemple aux tasks runners à <a href="http://gulpjs.com/" class="Link">Gulp</a> ou <a href="http://gruntjs.com/" class="Link">Grunt</a>.</p>
 <p>J’aime gagner du temps dans mon workflow, comme je le fais avec <a class="Link" href="/2013/03/23/git-flow.html">git en utilisant git-flow</a>. J’ai donc chercher un moyen d’<strong>automatiser la compilation de Sass</strong> dans mes projets, et je suis tombé sur cette vidéo de <a class="Link" href="http://net.tutsplus.com/tutorials/tools-and-tips/guard-is-your-best-friend/">Jeffrey Way, <em>Guard is your best friend</em></a>.</p>
 
@@ -128,3 +155,44 @@ end
 Si l’installation est douloureuse, <a class="Link" href="https://twitter.com/jeromesmadja">contactez moi</a>, je serais très content de vous aider.
 Guard ne se limite pas à Sass et <em>live reload</em>, si vous êtes intéressé, voici la <a class="Link" href="https://github.com/guard/guard/wiki/List-of-available-Guards">liste des plugins disponibles</a>, ils n’y sont pas tous mais il y en a déjà un bon paquet, par exemple il y a en un pour LESS, ou encore pour Jekyll.</p>
 </section>
+
+    <section class="MainText">
+    <nav class="otherPost Grid-container">
+        <h5 class="otherPost-heading">Autres articles</h5>
+        
+            <div class="otherPost-prev Grid-50">
+                <a href="/2013/03/23/git-flow.html" class="Link">&lt; Am&eacute;liorer votre workflow avec git-flow</a>
+            </div>
+        
+        
+            <div class="otherPost-next u-Right Grid-50">
+                <a href="/2014/09/05/detection-device-via-css-javascript.html" class="Link">D&eacute;tecter la taille du device en JS via CSS &gt;</a>
+            </div>
+        
+    </nav>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeromesmadja-blog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+    <footer class="Footer">
+        <div class="Footer-container">
+            <div class="Footer-col">
+                <a href="https://twitter.com/wakooka/" class="Link">@wakooka</a> Jérôme Smadja<br>
+                Développeur web / front-end<br>
+                Paris
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

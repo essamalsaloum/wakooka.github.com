@@ -1,38 +1,11 @@
-            </section><!-- .main-content -->
-            {% unless  page.published_date %}
-            <footer class="bio">
-                <div class="about-me">
-                    <h6>Jérôme Smadja</h6>
-                    <p>
-                        Développeur Front End. Paris. <br>
-                        Sur ce blog, j'utilise <a href="https://github.com/mojombo/jekyll">Jekyll</a> et <a href="http://pages.github.com/">Github Pages</a>.
-                    </p>
-                </div>
-                <div class="additional-info">
-                    <ul>
-                        <li><a class="button" id="twitter-account" href="https://twitter.com/wakooka/">@wakooka</a></li>
-                        <li><a class="button" id="github-account" href="https://github.com/wakooka/">Github</a></li>
-                    </ul>
-                </div>
-            </footer>
-             {% endunless %} 
-        </div> <!-- .container -->
-    <script>
-        // For syntax highlighting
-        [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
-            hljs.highlightBlock( element );
-        });
-
-        // Google Analytics 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36225677-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    </body>
+    <footer class="Footer">
+        <div class="Footer-container">
+            <div class="Footer-col">
+                <a href="https://twitter.com/wakooka/" class="Link">@wakooka</a> Jérôme Smadja<br>
+                Développeur web / front-end<br>
+                Paris
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

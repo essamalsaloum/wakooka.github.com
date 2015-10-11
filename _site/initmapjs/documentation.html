@@ -1,12 +1,75 @@
----
-layout: initmapjs
-menu_active: documentation
-current_page: documentation
----
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+        <title>jQuery plugin for Google Maps - initmap.js</title>
 
-# Option Reference
+        <link href="/img/initmap/favicon.ico" rel="shortcut icon">
+        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="/css/initmap/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/initmap/initmap.css">
+        <link rel="stylesheet" href="/css/includes/zenburn.css">
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+        <script src="/js/highlight.min.js" type="text/javascript"></script>
+        <script src="/js/jquery.min.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <script src="/js/initmap.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+         <a href="https://github.com/jeromesmadja/initmap.js">
+            <img id="forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+        </a>
 
-## Basic options
+        <nav id="navbar" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    
+                        <a id="back-to-top" class="visible-desktop" href="#option-reference" title="Back to top">&#x25B2;</a>
+                    
+                    <ul class="nav">
+                        <li>
+                            <a href="./index.html">About</a>
+                        </li>
+                        <li class="active">
+                            <a href="./documentation.html">Documentation</a>
+                        </li>
+                    </ul>
+                </div>
+           </div>
+        </nav>
+        
+        <div class="container content">
+            <section id="content">
+                
+                <div class="container">
+                    <div class="row-fluid">
+                        <div id="option-reference" class="submenu span3">
+                            <h5>Option Reference</h5>
+                            <ul>
+                                <li><a href="#basic_options">Basic options</a></li>
+                                <li><a href="#marker">Marker</a></li>
+                                <li><a href="#geolocation">Geolocation</a></li>
+                                <li><a href="#infowindow">InfoWindow</a></li>
+                                <li><a href="#control">Control</a></li>
+                            </ul>
+                        </div>
+                        <div id="api-reference" class="submenu span3">
+                            <h5>API Reference</h5>
+                            <ul>
+                                <li><a href="./api.html#basic">Basic</a></li>
+                                <li><a href="./api.html#marker">Marker</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 id="option-reference">Option Reference</h1>
+
+<h2 id="basic-options">Basic options</h2>
 
 <table class="table table-bordered">
 	<tr>
@@ -45,9 +108,9 @@ current_page: documentation
 	</tr>
 </table>
 
----------------------------------------------------
+<hr />
 
-### Center
+<h3 id="center">Center</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -66,9 +129,9 @@ current_page: documentation
 	</div>
 </div>
 
----------------------------------------------------
+<hr />
 
-### Type
+<h3 id="type">Type</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -89,9 +152,9 @@ current_page: documentation
 	</div>
 </div>
 
----------------------------------------------------
+<hr />
 
-### Options
+<h3 id="options">Options</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -107,24 +170,25 @@ current_page: documentation
 		<div id="zoom-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
----------------------------------------------------------------------
+<hr />
 
-## Marker
+<h2 id="marker">Marker</h2>
 
-You can pass multiple markers, in <code>initMap()</code>. That can be done like this:
+<p>You can pass multiple markers, in <code>initMap()</code>. That can be done like this:</p>
 
-	$('#map').initMap({
-		markers : {
-			marker1 : { position: [ 48.861553 , 2.351074 ] }, // Melbourne
-			paris_marker : { position: [ -37.764201 , 144.9646 ] } // Paris
-		}
-	});
-	
+<pre><code>$('#map').initMap({
+	markers : {
+		marker1 : { position: [ 48.861553 , 2.351074 ] }, // Melbourne
+		paris_marker : { position: [ -37.764201 , 144.9646 ] } // Paris
+	}
+});
+</code></pre>
+
 <div class="alert alert-info">
 	In the example above, note that <strong>'marker1'</strong> and <strong>'paris_marker'</strong> can be anything. We store those <em>keys</em> internally, so it's easier to get an existing marker via <code>markers.get()</code> method.
 </div>
 
-### Marker options
+<h3 id="marker-options">Marker options</h3>
 
 <table class="table table-bordered">
 	<tr>
@@ -159,13 +223,13 @@ You can pass multiple markers, in <code>initMap()</code>. That can be done like 
 		<td>-</td>
 		<td>
 			Any property that is defined in 
-			<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>, <br>
+			<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>, <br />
 			e.g: <code>options : { icon: 'icon.png', title: 'Paris marker' }</code>
 		</td>
 	</tr>
 </table>
 
-### Marker position
+<h3 id="marker-position">Marker position</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -200,9 +264,9 @@ $('#map').initMap({
 	</div>
 </div>
 
---------------------------------------------------------------
+<hr />
 
-### Marker animation
+<h3 id="marker-animation">Marker animation</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -224,12 +288,11 @@ $('#map').initMap({
 	</div>
 </div>
 
+<hr />
 
-------------------------------------------------------------
+<h2 id="geolocation">Geolocation</h2>
 
-## Geolocation
-
-### Geolocation options
+<h3 id="geolocation-options">Geolocation options</h3>
 
 <table class="table table-bordered">
 	<tr>
@@ -258,7 +321,7 @@ $('#map').initMap({
 	</tr>
 </table>
 
-### Geolocation callbacks
+<h3 id="geolocation-callbacks">Geolocation callbacks</h3>
 
 <table class="table table-bordered">
 	<tr>
@@ -293,9 +356,9 @@ $('#map').initMap({
 	</tr>
 </table>
 
----------------------------------------------------------
+<hr />
 
-### Geolocation center
+<h3 id="geolocation-center">Geolocation center</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -309,9 +372,9 @@ $('#map').initMap({
 	</div>
 </div>
 
---------------------------------------------------------------------
+<hr />
 
-### Geolocation marker
+<h3 id="geolocation-marker">Geolocation marker</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -325,9 +388,9 @@ $('#map').initMap({
 	</div>
 </div>
 
------------------------------------------------------------------
+<hr />
 
-### Using geolocation callbacks
+<h3 id="using-geolocation-callbacks">Using geolocation callbacks</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -363,9 +426,9 @@ $('#map').initMap({
 	</div>
 </div>
 
------------------------------------------------------------------
+<hr />
 
-## InfoWindow
+<h2 id="infowindow">InfoWindow</h2>
 
 <table class="table table-bordered">
 	<tr>
@@ -417,9 +480,9 @@ $('#map').initMap({
 
 </table>
 
-------------------------------------------------------------
+<hr />
 
-### InfoWindow example
+<h3 id="infowindow-example">InfoWindow example</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -453,12 +516,12 @@ $('#map').initMap({
 	</div>
 </div>
 
---------------------------------------------------------------------
+<hr />
 
-## Control
+<h2 id="control">Control</h2>
 
 <div class="alert alert-info">
-For each property of the <code>controls</code> object set to <strong>false</strong> the control will be hidden, and <strong>true</strong> will display the control based on the default settings set by Google Maps itself. <br> 
+For each property of the <code>controls</code> object set to <strong>false</strong> the control will be hidden, and <strong>true</strong> will display the control based on the default settings set by Google Maps itself. <br /> 
 Note that if you want to hide all the controls on the map you should be using <strong>disableDefaultUI</strong>, and set it to true, this property is available in the <a href="#options">map options</a>.
 </div>
 
@@ -473,9 +536,9 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>map_type</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>3 properties are available: <br>
-			- <code>type</code>: string or array of map types. e.g.: type: 'hybrid' <br>
-			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a> <br>
+		<td>3 properties are available: <br />
+			- <code>type</code>: string or array of map types. e.g.: type: 'hybrid' <br />
+			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a> <br />
 			- <code>style</code>: string, either 'dropdown_menu' or 'horizontal_bar'
         </td>
 	</tr>
@@ -483,7 +546,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>overview</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>1 property available: <br>
+		<td>1 property available: <br />
 			- <code>opened</code>: boolean, default false, if true the overview will be opened
 		</td>
 	</tr>
@@ -491,7 +554,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>pan</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>1 property available: <br>
+		<td>1 property available: <br />
 			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a>  
 		</td>
 	</tr>
@@ -499,7 +562,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>rotate</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>1 property available: <br>
+		<td>1 property available: <br />
 			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a>  
 		</td>
 	</tr>
@@ -507,7 +570,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>scale</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>1 property available: <br>
+		<td>1 property available: <br />
 			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a>  
 		</td>
 	</tr>
@@ -515,7 +578,7 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>street_view</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>1 property available: <br>
+		<td>1 property available: <br />
 			- <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a>  
 		</td>
 	</tr>
@@ -523,16 +586,16 @@ Note that if you want to hide all the controls on the map you should be using <s
 		<td>zoom</td>
 		<td>object or boolean</td>
 		<td>true</td>
-		<td>2 properties available: <br>
-            - <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a> <br>    
+		<td>2 properties available: <br />
+            - <code>position</code>: string, needs to be lowercase e.g: 'top_center', <a href="https://developers.google.com/maps/documentation/javascript/reference#ControlPosition">learn more about the control position on Google Maps docs</a> <br />    
 			- <code>style</code>: string, either 'large' or 'small', if you don't set this property, Google Maps will choose either large or small, based on the map size. 
 		</td>
 	</tr>
 </table>
 
-------------------------------------------------------------
+<hr />
 
-### Control example
+<h3 id="control-example">Control example</h3>
 
 <div class="row-fluid">
 	<div class="span6">
@@ -560,8 +623,136 @@ Note that if you want to hide all the controls on the map you should be using <s
 		</div>
 	</div>
 	<div class="span6">
-		<div id="control-example-map"  style="width: 100%; height: 300px;"> </div>
+		<div id="control-example-map" style="width: 100%; height: 300px;"> </div>
 	</div>
 </div>
 
---------------------------------------------------------------------
+<hr />
+
+            </section>
+        </div> <!-- .container -->
+        <footer id="footer" class="container">
+            <div class="row-fluid">
+                <div id="footer-content" class="span12">
+                    Created by <a href="https://www.twitter.com/jeromesmadja/">Jerome Smadja</a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            // For syntax highlighting
+            [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
+                hljs.highlightBlock( element );
+            });
+
+            var paris_latlng = [ 48.861553 , 2.351074 ],
+                melbourne_latlng = [ -37.764201 , 144.9646 ],
+                london_latlng = [ 51.526261, -0.119476 ];
+        </script>
+        
+        
+        <script>
+            // Documentation maps
+            if ( $('#center-map').length ) {
+                $('#center-map').initMap({ center: paris_latlng });
+                $('#type-map').initMap({ type: 'roadmap' });
+                $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
+                $('#geolocation-center-map').initMap({ geolocation: { center: true } });
+                $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
+                $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
+                $('#marker-paris-map').initMap({
+                    center: paris_latlng, // Set the center the map to Paris
+                    markers : {
+                        paris_marker : { position: paris_latlng },
+                        london : { position: london_latlng  }
+                    }
+                });
+
+                $('#marker-animation-map').initMap({
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {
+                        paris_marker : { position: paris_latlng, animation: 'bounce' }
+                    }
+                });
+
+                $('#infowindow-example-map').initMap({
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {
+                        london_marker : {
+                            position: 'london, UK',
+                            info_window : {
+                                content :'Showing on mouseover and hiding on mouseout',
+                                showOn: 'mouseover',
+                                hideOn: 'mouseout',
+                                maxWidth: 150,
+                                zIndex: 2
+                            }
+                        },
+                        paris_marker : {
+                            position: paris_latlng,
+                            info_window : {
+                                content :'Showing on click',
+                                maxWidth: 350,
+                                zIndex: 1
+                            }
+                        }
+                    }
+                });
+
+                $('#control-example-map').initMap({
+                    type: 'roadmap' ,
+                    controls : {
+                        map_type :
+                        {
+                            type : ['roadmap', 'satellite', 'hybrid'],
+                            position : 'top_left',
+                            style: 'dropdown_menu'
+                        },
+                        overview : { opened : true },
+                        pan : false,
+                        rotate : false,
+                        scale : true,
+                        street_view : { position : 'top_center' },
+                        zoom : {
+                            position : 'top_right',
+                            style: 'large'
+                        }
+                    }
+                });
+            }
+
+            $('a[href^=#]').on('click' , function(e)
+            {
+                // Prevent default bahaviour
+                e.preventDefault();
+
+                // Get element to scroll to, and set the offset
+                var current_elem = $( $(this).attr('href') ),
+                    offset = 50;
+
+                if ( current_elem.length ) {
+                    $('body, html').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
+                }
+            });
+            // If user types the hashtag in url,
+            // or direct url
+            $(window).on('hashchange', function() {
+                 $('a[href=' + location.hash +']').trigger('click');
+            }).trigger('hashchange');
+        </script>
+        
+        <script>
+            // Google Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36225677-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
+</html>

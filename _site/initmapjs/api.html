@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+        <title>jQuery plugin for Google Maps - initmap.js</title>
+
+        <link href="/img/initmap/favicon.ico" rel="shortcut icon">
+        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+        <link href="/css/initmap/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/initmap/initmap.css">
+        <link rel="stylesheet" href="/css/includes/zenburn.css">
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+        <script src="/js/highlight.min.js" type="text/javascript"></script>
+        <script src="/js/jquery.min.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <script src="/js/initmap.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+         <a href="https://github.com/jeromesmadja/initmap.js">
+            <img id="forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+        </a>
+
+        <nav id="navbar" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    
+                        <a id="back-to-top" class="visible-desktop" href="#option-reference" title="Back to top">&#x25B2;</a>
+                    
+                    <ul class="nav">
+                        <li>
+                            <a href="./index.html">About</a>
+                        </li>
+                        <li class="active">
+                            <a href="./documentation.html">Documentation</a>
+                        </li>
+                    </ul>
+                </div>
+           </div>
+        </nav>
+        
+        <div class="container content">
+            <section id="content">
+                
+                <div class="container">
+                    <div class="row-fluid">
+                        <div id="option-reference" class="submenu span3">
+                            <h5>Option Reference</h5>
+                            <ul>
+                                <li><a href="./documentation.html#basic_options">Basic options</a></li>
+                                <li><a href="./documentation.html#marker">Marker</a></li>
+                                <li><a href="./documentation.html#geolocation">Geolocation</a></li>
+                                <li><a href="./documentation.html#infowindow">InfoWindow</a></li>
+                                <li><a href="./documentation.html#control">Control</a></li>
+                            </ul>
+                        </div>
+                        <div id="api-reference" class="submenu span3">
+                            <h5>API Reference</h5>
+                            <ul>
+                                <li><a href="#basic">Basic</a></li>
+                                <li><a href="#marker">Marker</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 id="api-reference">API reference</h1>
+
+<h2 id="basic">Basic</h2>
+
+<h3 id="getmap">getMap()</h3>
+
+<p>If something can not be done using initmap API, you can get the 
+<a href="https://developers.google.com/maps/documentation/javascript/reference#Map">google.maps.Map</a> object so you can use Google Maps API.</p>
+
+<pre><code>var map = $('#map').initMap();
+var google_map = map.getMap(); // returns google.maps.Map object
+</code></pre>
+
+<hr />
+
+<h2 id="marker">Marker</h2>
+
+<h3 id="markersadd">markers.add()</h3>
+
+<p>To add multiple markers to the map, you can pass an object of <a href="./documentation.html#marker_options">Marker objects</a>. <br /></p>
+
+<pre><code>markers.add({ 'key_n': {MarkerObject}, 'key_n': {MarkerObject}, ... })
+</code></pre>
+
+<p><span class="label label-warning"> Warning </span> 
+ <strong>key_n</strong> string needs to be <strong>different for each new marker</strong>, think of them as unique keys. Using the same key for multiple markers will lead to unexpected results.</p>
+
+<table class="table table-bordered">
+	<tr>
+		<th>Parameters</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>key_n</td>
+		<td>string</td>
+		<td>A string that needs to be different for each marker that is placed on the map, the markers are stored internally, and can be retrieved using <a href="./api.html#get_markers">markers.get('key_n')</a></td>
+	</tr>
+	<tr>
+		<td>Marker object</td>
+		<td>object</td>
+		<td>
+			See the properties available for <a href="./documentation.html#marker_options">Marker object</a>
+		</td>
+	</tr>
+</table>
+
+<hr />
+
+<h4 id="markersget">markers.get()</h4>
+
+<p>To get a marker from the map, you can pass its unique key that you’ve specified when creating the marker.</p>
+
+<pre><code>markers.get( 'key' , handler( google.maps.marker ) )
+</code></pre>
+
+<table class="table table-bordered">
+	<tr>
+		<th>Parameters</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>key</td>
+		<td>string</td>
+		<td>Unique key that you've previously set, when creating the marker</td>
+	</tr>
+	<tr>
+		<td>handler(<a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker</a>)</td>
+		<td>function</td>
+		<td>
+			A function that will be invoked once the marker has been placed on the map. The only parameter of that function is a 
+			<a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker object</a> You can then work with the <a href="https://developers.google.com/maps/documentation/javascript/reference#Marker">google.maps.Marker methods</a> to modify the marker.
+		</td>
+	</tr>
+</table>
+<hr />
+
+<h4 id="markersall">markers.all()</h4>
+
+<p>To get all the markers on the map.</p>
+
+<pre><code>markers.all( handler( markers ) )
+</code></pre>
+
+<table class="table table-bordered">
+	<tr>
+		<th>Parameters</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>handler(markers)</td>
+		<td>function</td>
+		<td>
+			A function that will be invoked once the markers have been placed on the map. The only parameter of that function is an object containing all the markers on the map. The properties are the uniques that you've specified previously when creating the markers.
+		</td>
+	</tr>
+</table>
+
+<hr />
+
+<h4 id="markerremove">marker.remove()</h4>
+
+<p>To remove a marker from the map.</p>
+
+<pre><code>markers.remove( 'key' )
+</code></pre>
+
+<table class="table table-bordered">
+	<tr>
+		<th>Parameters</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>key</td>
+		<td>string</td>
+		<td>
+			A string that has been previously defined when creating the marker.
+		</td>
+	</tr>
+</table>
+
+<hr />
+
+            </section>
+        </div> <!-- .container -->
+        <footer id="footer" class="container">
+            <div class="row-fluid">
+                <div id="footer-content" class="span12">
+                    Created by <a href="https://www.twitter.com/jeromesmadja/">Jerome Smadja</a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            // For syntax highlighting
+            [].forEach.call( document.querySelectorAll('pre code') , function( element ) {
+                hljs.highlightBlock( element );
+            });
+
+            var paris_latlng = [ 48.861553 , 2.351074 ],
+                melbourne_latlng = [ -37.764201 , 144.9646 ],
+                london_latlng = [ 51.526261, -0.119476 ];
+        </script>
+        
+        
+        <script>
+            // Documentation maps
+            if ( $('#center-map').length ) {
+                $('#center-map').initMap({ center: paris_latlng });
+                $('#type-map').initMap({ type: 'roadmap' });
+                $('#zoom-map').initMap({ options: { zoom: 4, scrollwheel: false } });
+                $('#geolocation-center-map').initMap({ geolocation: { center: true } });
+                $('#geolocation-marker-map').initMap({ geolocation: {  marker: true } });
+                $('#geolocation-callback-map').initMap({ geolocation: { marker: true } });
+                $('#marker-paris-map').initMap({
+                    center: paris_latlng, // Set the center the map to Paris
+                    markers : {
+                        paris_marker : { position: paris_latlng },
+                        london : { position: london_latlng  }
+                    }
+                });
+
+                $('#marker-animation-map').initMap({
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {
+                        paris_marker : { position: paris_latlng, animation: 'bounce' }
+                    }
+                });
+
+                $('#infowindow-example-map').initMap({
+                    // Set the center the map to Paris
+                    center: paris_latlng,
+                    markers : {
+                        london_marker : {
+                            position: 'london, UK',
+                            info_window : {
+                                content :'Showing on mouseover and hiding on mouseout',
+                                showOn: 'mouseover',
+                                hideOn: 'mouseout',
+                                maxWidth: 150,
+                                zIndex: 2
+                            }
+                        },
+                        paris_marker : {
+                            position: paris_latlng,
+                            info_window : {
+                                content :'Showing on click',
+                                maxWidth: 350,
+                                zIndex: 1
+                            }
+                        }
+                    }
+                });
+
+                $('#control-example-map').initMap({
+                    type: 'roadmap' ,
+                    controls : {
+                        map_type :
+                        {
+                            type : ['roadmap', 'satellite', 'hybrid'],
+                            position : 'top_left',
+                            style: 'dropdown_menu'
+                        },
+                        overview : { opened : true },
+                        pan : false,
+                        rotate : false,
+                        scale : true,
+                        street_view : { position : 'top_center' },
+                        zoom : {
+                            position : 'top_right',
+                            style: 'large'
+                        }
+                    }
+                });
+            }
+
+            $('a[href^=#]').on('click' , function(e)
+            {
+                // Prevent default bahaviour
+                e.preventDefault();
+
+                // Get element to scroll to, and set the offset
+                var current_elem = $( $(this).attr('href') ),
+                    offset = 50;
+
+                if ( current_elem.length ) {
+                    $('body, html').animate({ scrollTop: current_elem.offset().top - offset }, 'slow');
+                }
+            });
+            // If user types the hashtag in url,
+            // or direct url
+            $(window).on('hashchange', function() {
+                 $('a[href=' + location.hash +']').trigger('click');
+            }).trigger('hashchange');
+        </script>
+        
+        <script>
+            // Google Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36225677-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
+</html>

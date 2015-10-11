@@ -1,10 +1,37 @@
----
-layout: post
-title: D&eacute;tecter la taille du device en JS via CSS
-published_date: 05 Septembre 2014
-published: true
----
-<section class="MainText">
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Jérôme Smadja - Développeur web - Blog  </title>
+        <meta name="description" content="Blog de Jérôme Smadja, Développeur Web, Paris">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+        <script src="http://www.google-analytics.com/ga.js" async></script>
+        <script src="/js/prism.js"></script>
+    </head>
+<body>
+    <header class="Header">
+       <nav class="Nav Nav--secondary">
+            <ul class="Nav-list">
+                <li class="Nav-listItem"><a href="/" class="AnimatedLink Link">Blog</a></li>
+                <li class="Nav-listItem"><a href="/projets.html" class="AnimatedLink Link">Projets</a></li>
+                <li class="Nav-listItem"><a href="/contact.html" class="AnimatedLink Link">Contact</a></li>
+            </ul>
+            </nav>
+    </header>
+    <div class="Hero">
+        <div class="Hero-container">
+            <span class="Post-date">05 Septembre 2014</span>
+            <h1>D&eacute;tecter la taille du device en JS via CSS</h1>
+        </div>
+    </div>
+
+    <section class="MainText">
 <p>Avez-vous déjà eu le cas d’un script qui doit s’exécuter de manière différente selon la taille de l’écran ? Comment ne pas dupliquer les tailles des media-queries dans le fichier javascript ?</p>
 
 <p>Des réponses sont apportées avec cette technique, issue de cet article <a href="http://davidwalsh.name/device-state-detection-css-media-queries-javascript" class="Link">Device State Detection with CSS Media Queries and JavaScript</a>.</p>
@@ -96,3 +123,40 @@ subscribe('/device-state/change', function(state) {
 <section class="MainText">
 <p>Voilà, une façon assez claire et propre de savoir à n’importe quel moment en quel est l’état du <em>device</em>. Pratique également, si selon la taille de l’écran on doit déclencher tel ou tel script. On peut aussi aller plus loin, en ajoutant d’autres états, comme le mode <em>portrait</em> ou <em>paysage</em> ou encore la détection de retina. Le javascript ne s’occupe à <strong>aucun moment de la détection</strong> (comme le fait modernizr), il laisse faire le CSS, et récupère le CSS <em>computed</em> par le navigateur. Les media queries sont alors gérés à un seul endroit, mais aussi accessible depuis le javascript, c’est là le vrai bonus de cette technique.</p>
 </section>
+
+    <section class="MainText">
+    <nav class="otherPost Grid-container">
+        <h5 class="otherPost-heading">Autres articles</h5>
+        
+            <div class="otherPost-prev Grid-50">
+                <a href="/2013/07/20/compiler-sass-avec-guard.html" class="Link">&lt; Compiler Sass avec un fichier Guard</a>
+            </div>
+        
+        
+    </nav>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeromesmadja-blog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+    <footer class="Footer">
+        <div class="Footer-container">
+            <div class="Footer-col">
+                <a href="https://twitter.com/wakooka/" class="Link">@wakooka</a> Jérôme Smadja<br>
+                Développeur web / front-end<br>
+                Paris
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
