@@ -71,7 +71,7 @@ layout: page
                     <img src="http://wakooka.github.io/img/initmapjs.png" class="ImgPost">
                 </a>
             </p>
-            <p>Développmenet d'un plugin jQuery pour intégrer google maps facilement. Réalisation de toute la documentation.</p>
+            <p>Développement d'un plugin jQuery pour intégrer google maps facilement. Réalisation de toute la documentation.</p>
         </div>
     </li>
 </ul>
