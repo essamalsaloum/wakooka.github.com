@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quota localStorage atteint, catching des erreurs
+title: Quota localStorage atteint, gestion des erreurs
 published_date: 30 Novembre 2015
 published: true
 ---
