@@ -6,12 +6,31 @@ layout: page
     <li class="List-item">
         <div class="Post-titleContainer">
             <div class="Post-fullWidth">
+                <span class="Post-date">Janvier 2016</span>
+                <h2 class="Post-title">
+                    <a href="/deezer-favorite-songs/" class="AnimatedLink Post-link">Deezer Favorite Tracks</a>
+                </h2>
+                <div class="Tag">
+                    <span class="Tag-item">javascript</span><span class="Tag-item">react</span><span class="Tag-item">webpack</span><span class="Tag-item">api</span><span class="Tag-item">deezer</span>
+                </div>
+            </div>
+        </div>
+        <div class="MainText">
+            <a href="/deezer-favorite-songs/">
+                <img src="/img/deezer.png" class="ImgPost">
+            </a>
+            <p>Application React permettant de trier, supprimer, ajouter ses chansons favorites sur Deezer.</p>
+        </div>
+    </li>
+    <li class="List-item">
+        <div class="Post-titleContainer">
+            <div class="Post-fullWidth">
                 <span class="Post-date">Mai 2015</span>
                 <h2 class="Post-title">
                     <a href="/demo/stopwatch/index.html" class="AnimatedLink Post-link">Chronomètre reactjs démo</a>
                 </h2>
                 <div class="Tag">
-                    <span class="Tag-item">javascript</span><span class="Tag-item">css</span><span class="Tag-item">media-query</span><span class="Tag-item">responsive design</span>
+                    <span class="Tag-item">javascript</span><span class="Tag-item">react</span>
                 </div>
             </div>
         </div>
